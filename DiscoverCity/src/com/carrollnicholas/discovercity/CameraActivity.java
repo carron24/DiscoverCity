@@ -1,10 +1,20 @@
 package com.carrollnicholas.discovercity;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -13,10 +23,11 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class CameraActivity extends Activity {
-	Context context;
+	static Context context;
 	Camera cam;
 	CameraPreview mPreview;
 	
+	public static final int MEDIA_TYPE_IMAGE = 1;
 	private static final String TAG = "CameraActivity";
 	
 	@Override
@@ -39,6 +50,15 @@ public class CameraActivity extends Activity {
 		preview.addView(mPreview);
 		
 		final Button button = (Button) findViewById(R.id.button);
+		button.setOnClickListener(
+				new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						cam.takePicture(null, null,mPicture);
+					}
+				});
 	}
 
 	
@@ -61,6 +81,77 @@ public class CameraActivity extends Activity {
 		}
 		return c;
 	}
+	
+	/** Create a file Uri for saving an image or video */
+	private static Uri getOutputMediaFileUri(int type){
+	      return Uri.fromFile(getOutputMediaFile(type));
+	}
+
+	private static File getOutputMediaFile(int type){
+		File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+				Environment.DIRECTORY_PICTURES), "DiscoverCity");
+		
+		if(!mediaStorageDir.exists()){
+			if(!mediaStorageDir.mkdirs()){
+				Log.d(TAG, "Failed to create dir");
+				return null;
+			}
+		}
+		
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+		File mediaFile;
+		
+		if(type == MEDIA_TYPE_IMAGE){
+			mediaFile = new File(mediaStorageDir.getPath() + File.separator + "DisCity_" + timeStamp + ".jpg");
+		}
+		else{
+			return null;
+		}
+		
+		return mediaFile;
+		
+	}
+	
+	private PictureCallback mPicture = new PictureCallback() {
+
+		@Override
+		public void onPictureTaken(byte[] data, Camera camera) {
+			// TODO Auto-generated method stub
+			
+			File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+			if(pictureFile == null){
+				Log.d(TAG, "Error creating media file, check permissions");
+				return;
+			}
+			
+			try{
+				FileOutputStream fos = new FileOutputStream(pictureFile);
+				fos.write(data);
+				fos.close();
+			} catch(FileNotFoundException e){
+				Log.d(TAG, "File not found");
+			} catch(IOException e){
+				Log.d(TAG, "Error accessing file");
+			}
+			
+		}
+		
+		
+	};
+	
+    @Override
+    protected void onPause() {
+        super.onPause();
+        releaseCamera();              // release the camera immediately on pause event
+    }
+
+    private void releaseCamera(){
+        if (cam != null){
+            cam.release();        // release the camera for other applications
+            cam = null;
+        }
+    }
+    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
