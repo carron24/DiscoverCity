@@ -2,13 +2,15 @@ package com.carrollnicholas.discovercity;
 
 import java.io.IOException;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+@SuppressLint("ViewConstructor")
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
 	private static final String TAG = "CameraPreview";
 	private SurfaceHolder mHolder;
@@ -41,6 +43,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 		// TODO Auto-generated method stub
 		try{
 			mCamera.setPreviewDisplay(holder);
+			mCamera.setDisplayOrientation(90);
 			mCamera.startPreview();
 		}
 		catch(IOException e){

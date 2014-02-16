@@ -7,12 +7,16 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.util.Log;
@@ -20,6 +24,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class CameraActivity extends Activity {
@@ -83,6 +88,7 @@ public class CameraActivity extends Activity {
 	}
 	
 	/** Create a file Uri for saving an image or video */
+	@SuppressWarnings("unused")
 	private static Uri getOutputMediaFileUri(int type){
 	      return Uri.fromFile(getOutputMediaFile(type));
 	}
@@ -127,7 +133,19 @@ public class CameraActivity extends Activity {
 			try{
 				FileOutputStream fos = new FileOutputStream(pictureFile);
 				fos.write(data);
+				String photopath = pictureFile.toString();
+			    Bitmap bmp = BitmapFactory.decodeFile(photopath);
+
+			    Matrix matrix = new Matrix();
+			    matrix.postRotate(90);
+			    bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+			    pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+
+				FileOutputStream fos2 = new FileOutputStream(pictureFile);
+		        bmp.compress(Bitmap.CompressFormat.JPEG, 85, fos2);
+			    
 				fos.close();
+				fos2.close();
 			} catch(FileNotFoundException e){
 				Log.d(TAG, "File not found");
 			} catch(IOException e){
@@ -138,6 +156,7 @@ public class CameraActivity extends Activity {
 		
 		
 	};
+
 	
     @Override
     protected void onPause() {

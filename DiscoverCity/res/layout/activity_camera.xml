@@ -8,14 +8,15 @@
 	  android:id="@+id/camera_preview"
 	  android:layout_width="fill_parent"
 	  android:layout_height="fill_parent"
-	/>
-    
-     <Button
-         android:id="@+id/button"
-         android:layout_width="100dp"
-         android:layout_height="100dp"
-         android:layout_alignParentRight="true"
-         android:layout_centerVertical="true"
-         android:layout_marginRight="32dp"/>
-
+	>
+    </FrameLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:cropToPadding="false"
+        android:background="@drawable/camera_icon"
+      />
 </RelativeLayout>
