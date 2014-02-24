@@ -1,4 +1,4 @@
-<!-- From: file:/C:/Users/Nicholas/DiscoverCity/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.carrollnicholas.discovercity">
+<!-- From: file:/C:/Users/Nicholas/DiscoverCity/DiscoverCity/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.carrollnicholas.discovercity">
     
 	<uses-permission android:name="android.permission.CAMERA"/>
 	<uses-feature android:name="android.hardware.camera"/>
