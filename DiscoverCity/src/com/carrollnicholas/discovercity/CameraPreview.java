@@ -1,23 +1,25 @@
 package com.carrollnicholas.discovercity;
 
-import java.io.IOException;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.io.IOException;
+import java.util.List;
 
 @SuppressLint("ViewConstructor")
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
 	private static final String TAG = "CameraPreview";
 	private SurfaceHolder mHolder;
 	private Camera mCamera;
+    private List<Camera.Size> mSupportedPreviewSizes;
+    private Camera.Size mPreviewSize;
 	
 	
-	@SuppressWarnings("deprecation")
+
 	public CameraPreview(Context context, Camera camera) {
 		super(context);
 		// TODO Auto-generated constructor stub
@@ -34,21 +36,31 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
-		try{
-			mCamera.setPreviewDisplay(holder);
-			mCamera.setDisplayOrientation(90);
-			mCamera.startPreview();
-		}
-		catch(IOException e){
-			Log.d(TAG, "Error with camera preview " + e.getMessage());
-		}
+        if (mCamera != null) {
+            Camera.Parameters params = mCamera.getParameters();
+            List<Camera.Size> localSizes = params.getSupportedPreviewSizes();
+            mSupportedPreviewSizes = localSizes;
+            requestLayout();
+            Camera.Size mSize;
+            mSize = localSizes.get(localSizes.size() - 1);
+            params.setPictureSize(mSize.width, mSize.height);
+            mCamera.setParameters(params);
+            try{
+                mCamera.setPreviewDisplay(holder);
+                mCamera.setDisplayOrientation(90);
+                mCamera.startPreview();
+            }
+            catch(IOException e){
+                Log.d(TAG, "Error with camera preview " + e.getMessage());
+            }
+        }
 	}
 
 	@Override

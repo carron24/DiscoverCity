@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Users\Nicholas\DiscoverCity\DiscoverCity\assets" />
+        <source path="C:\Users\Nicholas\DiscoverCity\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\Nicholas\DiscoverCity\DiscoverCity\build-types\debug\assets" />
+        <source path="C:\Users\Nicholas\DiscoverCity\build-types\debug\assets" />
     </dataSet>
 
 </merger>
