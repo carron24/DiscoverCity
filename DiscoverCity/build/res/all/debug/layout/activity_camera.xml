@@ -19,5 +19,6 @@
         android:cropToPadding="false"
         android:background="@drawable/camera_icon"
       />
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/layout/activity_camera.xml -->

@@ -22,7 +22,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.carrollnicholas.discovercity" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04a4376c-fe08-4306-b976-65f49efc2c00" name="Default" comment="" />
+    <list default="true" id="04a4376c-fe08-4306-b976-65f49efc2c00" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/arrays.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/xml/preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_camera.xml" afterPath="$PROJECT_DIR$/res/layout/activity_camera.xml" />
+    </list>
     <ignored path="DiscoverCity.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,7 +92,16 @@
       <file leaf-file-name="CameraActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="4" selection-start="2193" selection-end="2193" vertical-scroll-proportion="-16.56" vertical-offset="648" max-vertical-offset="2736">
+            <state line="110" column="69" selection-start="2907" selection-end="2908" vertical-scroll-proportion="-11.5" vertical-offset="1159" max-vertical-offset="2736">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CameraPreview.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="30" selection-start="742" selection-end="742" vertical-scroll-proportion="0.20043337" vertical-offset="139" max-vertical-offset="1062">
               <folding />
             </state>
           </provider>
@@ -101,13 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="76" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5460455" vertical-offset="0" max-vertical-offset="923">
-              <folding>
-                <element signature="e#934#952#0" expanded="true" />
-              </folding>
+            <state line="19" column="21" selection-start="665" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="720">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,12 +126,32 @@
       <file leaf-file-name="activity_camera.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="33" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="504">
+            <state line="21" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="522">
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preferences.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="19" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="396">
+              <folding>
+                <marker date="1394210244661" expanded="true" signature="116:649" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrays.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="19" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="468">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -680,7 +711,11 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java" />
+        <option value="$PROJECT_DIR$/res/menu/camera.xml" />
+        <option value="$PROJECT_DIR$/res/layout/indicator.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_camera.xml" />
+        <option value="$PROJECT_DIR$/res/values/arrays.xml" />
+        <option value="$PROJECT_DIR$/res/xml/preferences.xml" />
       </list>
     </option>
   </component>
@@ -697,7 +732,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -717,7 +752,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -782,30 +816,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DiscoverCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DiscoverCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -996,7 +1013,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1017,14 +1034,14 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14947917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1047,6 +1064,109 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="4" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/camera_icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="21" selection-start="665" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="19" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="396">
+          <folding>
+            <marker date="1394210244661" expanded="true" signature="116:649" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="4" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.0" vertical-offset="1584" max-vertical-offset="3366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/camera_icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="65" selection-start="1047" selection-end="1048" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="33" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="4" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.0" vertical-offset="1584" max-vertical-offset="3366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/camera_icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="76" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="33" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="4" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="2916">
           <folding />
         </state>
@@ -1060,9 +1180,7 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="720">
-          <folding>
-            <element signature="e#934#952#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,9 +1209,7 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="720">
-          <folding>
-            <element signature="e#934#952#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,9 +1238,7 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="720">
-          <folding>
-            <element signature="e#934#952#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,9 +1267,7 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="720">
-          <folding>
-            <element signature="e#934#952#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1216,14 +1328,33 @@
         <state line="5" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="0.100222714" vertical-offset="0" max-vertical-offset="898" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/camera.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.13651137" vertical-offset="0" max-vertical-offset="923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/camera_icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="21" selection-start="665" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="504">
+        <state line="21" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="522">
           <folding />
         </state>
       </provider>
@@ -1231,19 +1362,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="4" selection-start="2193" selection-end="2193" vertical-scroll-proportion="-16.56" vertical-offset="648" max-vertical-offset="2736">
+        <state line="16" column="19" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <folding>
+            <marker date="1394210244661" expanded="true" signature="116:649" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="468">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="76" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5460455" vertical-offset="0" max-vertical-offset="923">
-          <folding>
-            <element signature="e#934#952#0" expanded="true" />
-          </folding>
+        <state line="110" column="69" selection-start="2907" selection-end="2908" vertical-scroll-proportion="-11.5" vertical-offset="1159" max-vertical-offset="2736">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="30" selection-start="742" selection-end="742" vertical-scroll-proportion="0.20043337" vertical-offset="139" max-vertical-offset="1062">
+          <folding />
         </state>
       </provider>
     </entry>

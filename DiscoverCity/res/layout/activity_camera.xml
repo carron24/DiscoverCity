@@ -19,4 +19,5 @@
         android:cropToPadding="false"
         android:background="@drawable/camera_icon"
       />
+
 </RelativeLayout>
