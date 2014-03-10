@@ -1,16 +1,5 @@
 package com.carrollnicholas.discovercity;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -19,13 +8,22 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CameraActivity extends Activity {
 	static Context context;
@@ -68,12 +66,7 @@ public class CameraActivity extends Activity {
 
 	
 	private boolean checkCameraHardware(Context context){
-		if(context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-			return true;
-		}
-		else {
-			return false;
-		}
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
 	}
 	
 	public static Camera getCameraInstance(){
@@ -133,19 +126,9 @@ public class CameraActivity extends Activity {
 			try{
 				FileOutputStream fos = new FileOutputStream(pictureFile);
 				fos.write(data);
-				String photopath = pictureFile.toString();
-			    Bitmap bmp = BitmapFactory.decodeFile(photopath);
-
-			    Matrix matrix = new Matrix();
-			    matrix.postRotate(90);
-			    bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-			    pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
-
-				FileOutputStream fos2 = new FileOutputStream(pictureFile);
-		        bmp.compress(Bitmap.CompressFormat.JPEG, 85, fos2);
-			    
+				saveAndRotateImage(pictureFile);
 				fos.close();
-				fos2.close();
+
 			} catch(FileNotFoundException e){
 				Log.d(TAG, "File not found");
 			} catch(IOException e){
@@ -157,7 +140,25 @@ public class CameraActivity extends Activity {
 		
 	};
 
-	
+
+    private void saveAndRotateImage(File pictureFile){
+        try{
+            String photopath = pictureFile.toString();
+            Bitmap bmp = BitmapFactory.decodeFile(photopath);
+
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
+            bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+            pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+
+            FileOutputStream fos2 = new FileOutputStream(pictureFile);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 85, fos2);
+            fos2.close();
+        }
+        catch(IOException e){
+            Log.d(TAG, "Cannot save image " + e.getMessage());
+        }
+    }
     @Override
     protected void onPause() {
         super.onPause();
