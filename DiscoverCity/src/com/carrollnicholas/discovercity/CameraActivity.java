@@ -2,6 +2,7 @@ package com.carrollnicholas.discovercity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,8 @@ import android.hardware.Camera.PictureCallback;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -25,7 +28,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CameraActivity extends Activity {
+public class CameraActivity extends ActionBarActivity {
 	static Context context;
 	Camera cam;
 	CameraPreview mPreview;
@@ -37,16 +40,12 @@ public class CameraActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_camera);
-		
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 		
 		context = getApplicationContext();
-		
-		if(checkCameraHardware(context)){
-			cam = getCameraInstance();
-		}
-		else{
-			Toast.makeText(context, "NOOOOOOOOOO", Toast.LENGTH_SHORT).show();
-		}
+
 		
 		mPreview = new CameraPreview(this, cam);
 		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
@@ -60,6 +59,8 @@ public class CameraActivity extends Activity {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						cam.takePicture(null, null,mPicture);
+                        Intent myIntent = new Intent(CameraActivity.this, TagActivity.class);
+                        CameraActivity.this.startActivity(myIntent);
 					}
 				});
 	}
@@ -164,10 +165,28 @@ public class CameraActivity extends Activity {
         super.onPause();
         releaseCamera();              // release the camera immediately on pause event
     }
-
+    //@Override
+    protected void onResume()
+    {
+        super.onResume();
+        try
+        {
+            if(checkCameraHardware(context)){
+                cam = getCameraInstance();
+            }
+            //mCamera.setPreviewCallback(null);
+            mPreview = new CameraPreview(this, cam);//set preview
+            FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+            preview.addView(mPreview);
+        }
+        catch (Exception e){
+            Log.d(TAG, "Error starting camera preview: " + e.getMessage());
+        }
+    }
     private void releaseCamera(){
         if (cam != null){
             cam.release();        // release the camera for other applications
+            mPreview.getHolder().removeCallback(mPreview);
             cam = null;
         }
     }
