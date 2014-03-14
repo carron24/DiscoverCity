@@ -255,7 +255,7 @@ int id dialog 0x7f090012
 int id disableHome 0x7f090008
 int id dropdown 0x7f090013
 int id editText 0x7f09003f
-int id editText2 0x7f090043
+int id editText2 0x7f090042
 int id edit_query 0x7f090030
 int id end 0x7f09000c
 int id expand_activities_button 0x7f090026
@@ -265,6 +265,7 @@ int id homeAsUp 0x7f090005
 int id icon 0x7f09002a
 int id ifRoom 0x7f09000e
 int id image 0x7f090027
+int id imageView 0x7f090043
 int id listMode 0x7f090001
 int id list_item 0x7f090029
 int id middle 0x7f09000b
@@ -294,7 +295,6 @@ int id submit_area 0x7f090039
 int id tabMode 0x7f090002
 int id textView 0x7f09003e
 int id textView2 0x7f090040
-int id textView3 0x7f090042
 int id title 0x7f09002b
 int id top_action_bar 0x7f090020
 int id up 0x7f090021

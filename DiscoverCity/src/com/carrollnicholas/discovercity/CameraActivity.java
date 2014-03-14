@@ -32,7 +32,7 @@ public class CameraActivity extends ActionBarActivity {
 	static Context context;
 	Camera cam;
 	CameraPreview mPreview;
-	
+
 	public static final int MEDIA_TYPE_IMAGE = 1;
 	private static final String TAG = "CameraActivity";
 	
@@ -46,7 +46,7 @@ public class CameraActivity extends ActionBarActivity {
 		
 		context = getApplicationContext();
 
-		
+
 		mPreview = new CameraPreview(this, cam);
 		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
 		preview.addView(mPreview);
@@ -59,8 +59,6 @@ public class CameraActivity extends ActionBarActivity {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						cam.takePicture(null, null,mPicture);
-                        Intent myIntent = new Intent(CameraActivity.this, TagActivity.class);
-                        CameraActivity.this.startActivity(myIntent);
 					}
 				});
 	}
@@ -128,6 +126,11 @@ public class CameraActivity extends ActionBarActivity {
 				FileOutputStream fos = new FileOutputStream(pictureFile);
 				fos.write(data);
 				saveAndRotateImage(pictureFile);
+                String picturePreview = pictureFile.toString();
+                Log.v(TAG,picturePreview);
+                Intent myIntent = new Intent(CameraActivity.this, TagActivity.class);
+                myIntent.putExtra("picturePreview", picturePreview);
+                CameraActivity.this.startActivity(myIntent);
 				fos.close();
 
 			} catch(FileNotFoundException e){
@@ -150,7 +153,6 @@ public class CameraActivity extends ActionBarActivity {
             Matrix matrix = new Matrix();
             matrix.postRotate(90);
             bmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-            pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
 
             FileOutputStream fos2 = new FileOutputStream(pictureFile);
             bmp.compress(Bitmap.CompressFormat.JPEG, 85, fos2);

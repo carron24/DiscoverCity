@@ -23,31 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fd831c8-babf-4cc3-a0e2-253623fe61f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_tag.xml" />
       <change type="DELETED" beforePath="C:\Users\Nicholas\DiscoverCity\bin\classes\com\carrollnicholas\discovercity\Manifest.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Nicholas\DiscoverCity\build\pre-dexed\debug\android-support-v4-aac9ba6a8bf2fe11b05865c2912d47d5d3bc4931.jar" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Nicholas\DiscoverCity\gen\com\carrollnicholas\discovercity\Manifest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\Thumbs.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/CameraActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$attr.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$dimen.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$dimen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$menu.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$menu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$style.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R.class" afterPath="$PROJECT_DIR$/bin/classes/com/carrollnicholas/discovercity/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/build/dex/debug/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java" afterPath="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DiscoverCity.iml" afterPath="$PROJECT_DIR$/DiscoverCity.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/source/r/debug/com/carrollnicholas/discovercity/R.java" afterPath="$PROJECT_DIR$/build/source/r/debug/com/carrollnicholas/discovercity/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/carrollnicholas/discovercity/R.java" afterPath="$PROJECT_DIR$/gen/com/carrollnicholas/discovercity/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java" afterPath="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_tag.xml" afterPath="$PROJECT_DIR$/res/layout/activity_tag.xml" />
     </list>
     <ignored path="DiscoverCity.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,22 +94,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CameraPreview.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CameraPreview.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1422">
-              <caret line="33" column="5" selection-start="879" selection-end="879" />
+            <state vertical-scroll-proportion="0.4151565" vertical-offset="450" max-vertical-offset="1278">
+              <caret line="47" column="12" selection-start="1197" selection-end="1262" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TagActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TagActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73311365" vertical-offset="113" max-vertical-offset="720">
-              <caret line="35" column="5" selection-start="1057" selection-end="1057" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1458">
+              <caret line="41" column="69" selection-start="1203" selection-end="1203" />
+              <folding>
+                <element signature="e#1405#1802#0" expanded="true" />
+                <element signature="e#1783#1784#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +123,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.481482" vertical-offset="536" max-vertical-offset="1386">
-              <caret line="44" column="43" selection-start="1821" selection-end="1821" />
+            <state vertical-scroll-proportion="-18.814816" vertical-offset="950" max-vertical-offset="1566">
+              <caret line="81" column="0" selection-start="3084" selection-end="3084" />
               <folding />
             </state>
           </provider>
@@ -157,8 +143,8 @@
       <file leaf-file-name="CameraActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.964286" vertical-offset="105" max-vertical-offset="3078">
-              <caret line="52" column="8" selection-start="1523" selection-end="1523" />
+            <state vertical-scroll-proportion="19.321428" vertical-offset="2161" max-vertical-offset="3114">
+              <caret line="123" column="12" selection-start="3298" selection-end="3298" />
               <folding />
             </state>
           </provider>
@@ -170,7 +156,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="522">
               <caret line="0" column="0" selection-start="0" selection-end="0" />
               <folding />
             </state>
@@ -737,12 +723,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_tag.xml" />
+        <option value="$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java" />
       </list>
     </option>
   </component>
@@ -1059,7 +1045,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1120,7 +1106,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="792">
           <caret line="9" column="41" selection-start="246" selection-end="246" />
-          <folding />
+          <folding>
+            <element signature="e#1405#1802#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,6 +1223,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
+          <caret line="19" column="51" selection-start="701" selection-end="701" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="1458">
+          <caret line="41" column="69" selection-start="1203" selection-end="1203" />
+          <folding>
+            <element signature="e#1405#1802#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_camera.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1245,45 +1253,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1278">
-          <caret line="33" column="5" selection-start="879" selection-end="879" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_tag.xml">
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-          <caret line="19" column="51" selection-start="701" selection-end="701" />
+        <state vertical-scroll-proportion="-18.814816" vertical-offset="950" max-vertical-offset="1566">
+          <caret line="81" column="0" selection-start="3084" selection-end="3084" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.964286" vertical-offset="105" max-vertical-offset="3078">
-          <caret line="52" column="8" selection-start="1523" selection-end="1523" />
+        <state vertical-scroll-proportion="19.321428" vertical-offset="2161" max-vertical-offset="3114">
+          <caret line="123" column="12" selection-start="3298" selection-end="3298" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_tag.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/CameraPreview.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.481482" vertical-offset="536" max-vertical-offset="1386">
-          <caret line="44" column="43" selection-start="1821" selection-end="1821" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/carrollnicholas/discovercity/TagActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73311365" vertical-offset="113" max-vertical-offset="720">
-          <caret line="35" column="5" selection-start="1057" selection-end="1057" />
+        <state vertical-scroll-proportion="0.4151565" vertical-offset="450" max-vertical-offset="1278">
+          <caret line="47" column="12" selection-start="1197" selection-end="1262" />
           <folding />
         </state>
       </provider>

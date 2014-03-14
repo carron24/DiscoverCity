@@ -42,21 +42,12 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
+        android:text="Click To Add Location"
         android:id="@+id/radioButton"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Click to add location!"
-        android:id="@+id/textView3"
         android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 
     <EditText
         android:layout_width="fill_parent"
@@ -76,6 +67,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/editText2"
         android:layout_alignEnd="@+id/editText2"
-        android:layout_toRightOf="@+id/textView3" />
+        android:layout_toRightOf="@+id/radioButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/radioButton"
+        android:layout_toLeftOf="@id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/layout/activity_tag.xml -->

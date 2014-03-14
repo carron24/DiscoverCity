@@ -884,7 +884,7 @@ containing a value of this type.
         public static final int disableHome=0x7f090008;
         public static final int dropdown=0x7f090013;
         public static final int editText=0x7f09003f;
-        public static final int editText2=0x7f090043;
+        public static final int editText2=0x7f090042;
         public static final int edit_query=0x7f090030;
         public static final int end=0x7f09000c;
         public static final int expand_activities_button=0x7f090026;
@@ -894,6 +894,7 @@ containing a value of this type.
         public static final int icon=0x7f09002a;
         public static final int ifRoom=0x7f09000e;
         public static final int image=0x7f090027;
+        public static final int imageView=0x7f090043;
         public static final int listMode=0x7f090001;
         public static final int list_item=0x7f090029;
         public static final int middle=0x7f09000b;
@@ -923,7 +924,6 @@ containing a value of this type.
         public static final int tabMode=0x7f090002;
         public static final int textView=0x7f09003e;
         public static final int textView2=0x7f090040;
-        public static final int textView3=0x7f090042;
         public static final int title=0x7f09002b;
         public static final int top_action_bar=0x7f090020;
         public static final int up=0x7f090021;
