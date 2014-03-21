@@ -7,7 +7,9 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -17,6 +19,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -29,8 +38,9 @@ public class TagActivity extends ActionBarActivity {
 
     String tagText;
     String descText;
-    ImageView imageView;
-    Bitmap picturePreview;
+
+    Double longi;
+    Double lat;
 
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
@@ -64,16 +74,6 @@ public class TagActivity extends ActionBarActivity {
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                MINIMUM_TIME_BETWEEN_UPDATES,
-                MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
-        new MyLocationListener()
-        );
-
-
-
-
 
         mButton.setOnClickListener(
                 new View.OnClickListener()
@@ -86,6 +86,10 @@ public class TagActivity extends ActionBarActivity {
                         Log.v("Tag Text",tagText);
                         Log.v("Description Text", descText);
                         showCurrentLocation();
+                        UploadImage ui = new UploadImage();
+                        Log.v("Longitude", Double.toString(longi));
+                        Log.v("Latitude",Double.toString(lat));
+                        ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat));
 
                     }
                 });
@@ -112,6 +116,8 @@ public class TagActivity extends ActionBarActivity {
             );
             Toast.makeText(TagActivity.this, message,
                     Toast.LENGTH_LONG).show();
+            longi = location.getLongitude();
+            lat = location.getLatitude();
 
         }
         else{
@@ -164,4 +170,60 @@ private class MyLocationListener implements LocationListener {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    private class UploadImage extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+                String tText = params[0];
+                String dText = params[1];
+                String longiString = params[2];
+                String latString = params[3];
+                try{
+
+                    // 1. create HttpClient
+                    HttpClient httpclient = new DefaultHttpClient();
+
+                    // 2. make POST request to the given URL
+                    HttpPost httpPost = new HttpPost("http://172.245.128.203:3000/addimage");
+
+                    String json = "";
+
+                    // 3. build jsonObject
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.accumulate("tagText", tText);
+                    jsonObject.accumulate("descText", dText);
+                    jsonObject.accumulate("longitude", longiString);
+                    jsonObject.accumulate("latitude", latString);
+
+
+                    // 4. convert JSONObject to JSON to String
+                    json = jsonObject.toString();
+
+                    // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+                    // ObjectMapper mapper = new ObjectMapper();
+                    // json = mapper.writeValueAsString(person);
+
+                    // 5. set json to StringEntity
+                    StringEntity se = new StringEntity(json);
+
+                    // 6. set httpPost Entity
+                    httpPost.setEntity(se);
+
+                    // 7. Set some headers to inform server about the type of the content
+                    httpPost.setHeader("Accept", "application/json");
+                    httpPost.setHeader("Content-type", "application/json");
+
+                   // StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    //StrictMode.setThreadPolicy(policy);
+                    // 8. Execute POST request to the given URL
+                    HttpResponse httpResponse = httpclient.execute(httpPost);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            return "";
+        }
+    }
 }
