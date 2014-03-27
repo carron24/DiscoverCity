@@ -48,7 +48,7 @@ public class TagActivity extends ActionBarActivity {
     Double longi;
     Double lat;
 
-    File imgFile;
+    String imageLocation;
 
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
@@ -69,7 +69,8 @@ public class TagActivity extends ActionBarActivity {
         mEdit2 = (EditText)findViewById(R.id.editText2);
 
         Bundle extras = getIntent().getExtras();
-        imgFile = new  File(extras.getString("picturePreview"));
+        imageLocation = extras.getString("picturePreview");
+        File imgFile = new  File(imageLocation);
         if(imgFile.exists()){
 
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -193,58 +194,22 @@ private class MyLocationListener implements LocationListener {
                 String latString = params[3];
                 try{
 
-                    // 1. create HttpClient
-                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpClient client = new DefaultHttpClient();
+                    HttpPost poster = new HttpPost("http://nicholascarroll.info:3000/newimage");
 
-                    // 2. make POST request to the given URL
-                    HttpPost httpPost = new HttpPost("http://172.245.128.203:3000/addimage");
+                    File imageFile = new File(imageLocation);
+                    MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+                    entity.addPart("image", new FileBody(imageFile));
+                    entity.addPart("tagText", new StringBody(tText));
+                    entity.addPart("descText", new StringBody(descText));
+                    entity.addPart("longitude", new StringBody(longiString));
+                    entity.addPart("latitude", new StringBody(latString));
 
-                    String json = "";
+                    poster.setEntity(entity);
 
-                    // 3. build jsonObject
-                    JSONObject jsonObject = new JSONObject();
-                    jsonObject.accumulate("tagText", tText);
-                    jsonObject.accumulate("descText", dText);
-                    jsonObject.accumulate("longitude", longiString);
-                    jsonObject.accumulate("latitude", latString);
-
-
-                    // 4. convert JSONObject to JSON to String
-                    json = jsonObject.toString();
-
-                    // ** Alternative way to convert Person object to JSON string usin Jackson Lib
-                   //  ObjectMapper mapper = new ObjectMapper();
-                    // json = mapper.writeValueAsString(person);
-
-                    // 5. set json to StringEntity
+                    client.execute(poster);
 
 
-                    //ContentBody cbFile = new FileBody(imgFile, "image/jpeg" );
-                    //entity.addPart("source", cbFile);
-                   StringEntity se = new StringEntity(json);
-
-                    // 6. set httpPost Entity
-                    httpPost.setEntity(se);
-
-
-                    httpPost.setHeader("Accept", "application/json");
-                    httpPost.setHeader("Content-type", "application/json");
-                    // 8. Execute POST request to the given URL
-                    HttpResponse httpResponse = httpclient.execute(httpPost);
-
-                   MultipartEntity entity = new MultipartEntity(
-                            HttpMultipartMode.BROWSER_COMPATIBLE);
-                   // File file = new File(imgFile);
-                    FileBody cbFile = new FileBody( imgFile, "image/jpeg");
-                    entity.addPart("image", cbFile);
-                    entity.addPart("name", new StringBody("test"));
-                    entity.addPart("tagTest", new StringBody("hello"));
-                    HttpPost httpPost2 = new HttpPost("http://172.245.128.203:3000/newimage");
-
-                    // httpPost2.setHeader("Content-Type", "multipart/form-data ");
-                    httpPost2.setEntity(entity);
-                    //httpPost2.setHeader("Accept", "multipart/form-data ");
-                    HttpResponse httpResponse2 = httpclient.execute(httpPost2);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
