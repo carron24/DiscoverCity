@@ -20,10 +20,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
@@ -41,6 +47,8 @@ public class TagActivity extends ActionBarActivity {
 
     Double longi;
     Double lat;
+
+    File imgFile;
 
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
@@ -61,7 +69,7 @@ public class TagActivity extends ActionBarActivity {
         mEdit2 = (EditText)findViewById(R.id.editText2);
 
         Bundle extras = getIntent().getExtras();
-        File imgFile = new  File(extras.getString("picturePreview"));
+        imgFile = new  File(extras.getString("picturePreview"));
         if(imgFile.exists()){
 
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -100,14 +108,8 @@ public class TagActivity extends ActionBarActivity {
     private void showCurrentLocation() {
 
         MyLocationListener myLoc = new MyLocationListener();
-        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
-            locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER,myLoc,null);
-            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        }
-        else{
-            locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER,myLoc,null);
-            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        }
+        locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER,myLoc,null);
+        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if(location != null){
             String message = String.format(
@@ -121,8 +123,17 @@ public class TagActivity extends ActionBarActivity {
 
         }
         else{
-            Toast.makeText(TagActivity.this, "location is null",
+            locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER,myLoc,null);
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            String message = String.format(
+                    "Current Location \n Longitude: %1$s \n Latitude: %2$s",
+                    location.getLongitude(), location.getLatitude()
+            );
+            Toast.makeText(TagActivity.this, message,
                     Toast.LENGTH_LONG).show();
+            longi = location.getLongitude();
+            lat = location.getLatitude();
+
         }
 
     }
@@ -202,28 +213,45 @@ private class MyLocationListener implements LocationListener {
                     json = jsonObject.toString();
 
                     // ** Alternative way to convert Person object to JSON string usin Jackson Lib
-                    // ObjectMapper mapper = new ObjectMapper();
+                   //  ObjectMapper mapper = new ObjectMapper();
                     // json = mapper.writeValueAsString(person);
 
                     // 5. set json to StringEntity
-                    StringEntity se = new StringEntity(json);
+
+
+                    //ContentBody cbFile = new FileBody(imgFile, "image/jpeg" );
+                    //entity.addPart("source", cbFile);
+                   StringEntity se = new StringEntity(json);
 
                     // 6. set httpPost Entity
                     httpPost.setEntity(se);
 
-                    // 7. Set some headers to inform server about the type of the content
+
                     httpPost.setHeader("Accept", "application/json");
                     httpPost.setHeader("Content-type", "application/json");
-
-                   // StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                    //StrictMode.setThreadPolicy(policy);
                     // 8. Execute POST request to the given URL
                     HttpResponse httpResponse = httpclient.execute(httpPost);
+
+                   MultipartEntity entity = new MultipartEntity(
+                            HttpMultipartMode.BROWSER_COMPATIBLE);
+                   // File file = new File(imgFile);
+                    FileBody cbFile = new FileBody( imgFile, "image/jpeg");
+                    entity.addPart("image", cbFile);
+                    entity.addPart("name", new StringBody("test"));
+                    entity.addPart("tagTest", new StringBody("hello"));
+                    HttpPost httpPost2 = new HttpPost("http://172.245.128.203:3000/newimage");
+
+                    // httpPost2.setHeader("Content-Type", "multipart/form-data ");
+                    httpPost2.setEntity(entity);
+                    //httpPost2.setHeader("Accept", "multipart/form-data ");
+                    HttpResponse httpResponse2 = httpclient.execute(httpPost2);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                 }
             return "";
+
+
         }
     }
 }

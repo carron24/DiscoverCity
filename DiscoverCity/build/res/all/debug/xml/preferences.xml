@@ -14,4 +14,4 @@
         android:entries="@array/updateInterval"
         android:entryValues="@array/updateIntervalValues"
         android:defaultValue="default" />
-</PreferenceScreen><!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/xml/preferences.xml -->
+</PreferenceScreen><!-- From: file:/C:/Users/Nicholas/DiscoverCity/DiscoverCity/res/xml/preferences.xml -->
