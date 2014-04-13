@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.carrollnicholas.discovercity"
+    package="com.carrollnicholas.discocity"
     android:versionCode="1"
-    android:versionName="1.0" 
-    >
-    
-	<uses-permission android:name="android.permission.CAMERA" />
-	<uses-feature android:name="android.hardware.camera" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />   
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+   
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -21,12 +22,12 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-    	android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/Theme.AppCompat.Light" >
         <activity
-            android:name="com.carrollnicholas.discovercity.CameraActivity"
+            android:name="com.carrollnicholas.discocity.CameraActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,10 +35,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.carrollnicholas.discovercity.TagActivity"
+            android:name="com.carrollnicholas.discocity.TagActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.carrollnicholas.discocity.ImageReturn"
+            android:label="@string/title_activity_image_return" >
         </activity>
     </application>
 

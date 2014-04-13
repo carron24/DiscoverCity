@@ -42,8 +42,11 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:appcompat-v7:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files ('httpmime-4.3.3.jar')
+    compile files ('httpclient-4.3.3.jar')
+    compile files ('httpcore-4.3.2.jar')
 }
 
 android {
