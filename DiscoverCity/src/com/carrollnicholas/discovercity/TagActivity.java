@@ -70,15 +70,15 @@ public class TagActivity extends ActionBarActivity {
 
         Bundle extras = getIntent().getExtras();
         imageLocation = extras.getString("picturePreview");
-        File imgFile = new  File(imageLocation);
-        if(imgFile.exists()){
+       // File imgFile = new  File(imageLocation);
+     //   if(imgFile.exists()){
 
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+       //     Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 
-            ImageView myImage = (ImageView) findViewById(R.id.imageView);
-            myImage.setImageBitmap(myBitmap);
+     //       ImageView myImage = (ImageView) findViewById(R.id.imageView);
+      //     myImage.setImageBitmap(myBitmap);
 
-        }
+       // }
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -183,7 +183,6 @@ private class MyLocationListener implements LocationListener {
     }
 
 
-
     private class UploadImage extends AsyncTask<String, Void, String> {
 
         @Override
@@ -201,7 +200,7 @@ private class MyLocationListener implements LocationListener {
                     MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
                     entity.addPart("image", new FileBody(imageFile));
                     entity.addPart("tagText", new StringBody(tText));
-                    entity.addPart("descText", new StringBody(descText));
+                    entity.addPart("descText", new StringBody(dText));
                     entity.addPart("longitude", new StringBody(longiString));
                     entity.addPart("latitude", new StringBody(latString));
 
