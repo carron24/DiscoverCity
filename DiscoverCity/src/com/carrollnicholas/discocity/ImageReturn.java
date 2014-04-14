@@ -99,6 +99,7 @@ public class ImageReturn extends ActionBarActivity {
 
         }
     };
+
 }
 
 class JsonToInfo{
