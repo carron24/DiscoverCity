@@ -6747,24 +6747,24 @@ true
                     msgid="3588849162933574182" >"Več možnosti"
                 </string>
                 <string
-                    name="abc_shareactionprovider_share_with"
-                    msgid="3421042268587513524" >"Deljenje z"
+                    name="abc_action_mode_done"
+                    msgid="4076576682505996667" >"Končano"
                 </string>
                 <string
                     name="abc_activity_chooser_view_see_all"
                     msgid="7468859129482906941" >"Pokaži vse"
                 </string>
                 <string
-                    name="abc_action_mode_done"
-                    msgid="4076576682505996667" >"Končano"
-                </string>
-                <string
-                    name="abc_searchview_description_submit"
-                    msgid="8928215447528550784" >"Pošiljanje poizvedbe"
+                    name="abc_shareactionprovider_share_with"
+                    msgid="3421042268587513524" >"Deljenje z"
                 </string>
                 <string
                     name="abc_searchview_description_query"
                     msgid="2550479030709304392" >"Iskalna poizvedba"
+                </string>
+                <string
+                    name="abc_searchview_description_submit"
+                    msgid="8928215447528550784" >"Pošiljanje poizvedbe"
                 </string>
                 <string
                     name="abc_searchview_description_voice"
@@ -8358,6 +8358,10 @@ Every 5 minutes
                 </string>
                 <string name="title_activity_image_return" >ImageReturn
                 </string>
+                <string name="title_activity_result" >ResultActivity
+                </string>
+                <string name="title_activity_main" >MainActivity
+                </string>
                 <string name="app_name" >DiscoverCity
                 </string>
                 <string name="hello_world" >Hello world!
@@ -8449,6 +8453,21 @@ Other
                 path="C:\Users\Nicholas\DiscoverCity\res\layout\activity_image_return.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                name="activity_main"
+                path="C:\Users\Nicholas\DiscoverCity\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_result"
+                path="C:\Users\Nicholas\DiscoverCity\res\layout\activity_result.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="C:\Users\Nicholas\DiscoverCity\res\menu\main.xml"
+                qualifiers=""
+                type="menu" />
         </source>
         <source path="C:\Users\Nicholas\DiscoverCity\build\res\rs\debug" />
         <source path="C:\Users\Nicholas\DiscoverCity\build\res\generated\debug" />

@@ -24,6 +24,8 @@
         </activity>
         <activity android:label="@string/title_activity_image_return" android:name="com.carrollnicholas.discocity.ImageReturn">
         </activity>
+        <activity android:label="@string/title_activity_result" android:name="com.carrollnicholas.discocity.ResultActivity">
+        </activity>
     </application>
 
 </manifest>

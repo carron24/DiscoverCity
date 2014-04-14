@@ -575,6 +575,8 @@
     <string name="app_name">DiscoverCity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_image_return">ImageReturn</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/styles.xml -->
     <eat-comment />
 
