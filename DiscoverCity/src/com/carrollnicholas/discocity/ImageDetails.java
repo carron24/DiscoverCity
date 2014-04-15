@@ -16,6 +16,8 @@ public class ImageDetails implements Parcelable {
     public String imageLink;
     public String longiData;
     public String latiData;
+    public double distance;
+    public String distanceString;
 
     // Constructor
     public ImageDetails(JSONObject json){
@@ -25,6 +27,8 @@ public class ImageDetails implements Parcelable {
             imageLink = json.getString("image");
             longiData = json.getString("longitude");
             latiData = json.getString("latitude");
+            distanceString = "";
+
 
 
         }
@@ -34,16 +38,19 @@ public class ImageDetails implements Parcelable {
     }
     // Getter and setter methods
 
+    public void toDistanceString(){
+        this.distanceString = this.distance + "";
+    }
     // Parcelling part
     public ImageDetails(Parcel in){
-        String[] data = new String[5];
-
+        String[] data = new String[6];
         in.readStringArray(data);
         tagText = data[0];
         descText = data[1];
         imageLink = data[2];
         longiData = data[3];
         latiData = data[4];
+        distanceString = data[5];
     }
 
     public int describeContents(){
@@ -53,7 +60,7 @@ public class ImageDetails implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[] {tagText, descText, imageLink,
-                               longiData, latiData});
+                               longiData, latiData, distanceString});
     }
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public ImageDetails createFromParcel(Parcel in) {

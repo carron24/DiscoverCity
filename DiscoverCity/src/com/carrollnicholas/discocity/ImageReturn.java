@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -30,7 +31,9 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
 public class ImageReturn extends ActionBarActivity {
@@ -42,7 +45,6 @@ public class ImageReturn extends ActionBarActivity {
     Button b4;
     Button b5;
     static public ArrayList<ImageDetails> id = new ArrayList<ImageDetails>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,19 @@ public class ImageReturn extends ActionBarActivity {
             e.printStackTrace();
         }
         JsonToInfo jt = new JsonToInfo(this);
+
+        Bundle extras = getIntent().getExtras();
+        double longitude = Double.parseDouble(extras.getString("longitude"));
+        double latitude = Double.parseDouble(extras.getString("latitude"));
+        Location loc = new Location("point a");
+        loc.setLatitude(latitude);
+        loc.setLongitude(longitude);
+
+
         jt.infoReturn(jsonArray);
+        id = jt.closestImages(id,loc);
+        jt.displayReturnData(id);
+
         b.setOnClickListener(onClickListener);
         b1.setOnClickListener(onClickListener);
         b2.setOnClickListener(onClickListener);
@@ -105,20 +119,58 @@ public class ImageReturn extends ActionBarActivity {
 class JsonToInfo{
     public Activity activity;
 
+    private static final String TAG = "JSONtoInfo";
+
+
     public JsonToInfo(Activity ac){
         this.activity = ac;
     }
 
+
+    public ArrayList<Double> getDistances(ArrayList<ImageDetails> id, Location loc){
+        ArrayList<Double> distances = new ArrayList<Double>();
+        for (int i = 0; i < id.size(); i++) {
+            JSONObject json;
+            ImageDetails image = id.get(i);
+
+            double longi = Double.parseDouble(image.longiData);
+            double lati =  Double.parseDouble(image.latiData);
+            Location loc1 = new Location("point b");
+
+            loc1.setLatitude(lati);
+            loc1.setLongitude(longi);
+
+            double distance = loc.distanceTo(loc1);
+            distances.add(distance);
+            id.get(i).distance = distance;
+            id.get(i).distanceString = distance + "";
+        }
+        return distances;
+    }
+
+    public ArrayList<ImageDetails> closestImages(ArrayList<ImageDetails> id, Location loc){
+        ArrayList<Double> distances = getDistances(id, loc);
+        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
+        Collections.sort(distances);
+        for(int i = 0; i < 5; i++){
+            for(ImageDetails temp : id){
+                if(distances.get(i) == temp.distance ){
+                    tempList.add(temp);
+                }
+            }
+        }
+        for(ImageDetails temp : tempList){
+            Log.v(TAG, ""+ temp.distance);
+        }
+        return tempList;
+    }
+
     public JSONArray infoReturn(JSONArray jsonArray){
         JSONArray jsReturn = null;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < jsonArray.length()-1; i++) {
             JSONObject json;
             try {
                 json = jsonArray.getJSONObject(i);
-                tagReturn(json, i);
-                descReturn(json, i);
-                locReturn(json, i);
-                imageReturn(json, i);
                 ImageDetails jsonDetails = new ImageDetails(json);
                 ImageReturn.id.add(jsonDetails);
 
@@ -131,99 +183,51 @@ class JsonToInfo{
         return jsReturn;
     }
 
-    public void tagReturn(JSONObject json, int i){
-        try{
-            String type = json.getString("tagText");
+    public void displayReturnData(ArrayList<ImageDetails> id){
+        for(int i = 0; i < 5; i++){
+            tagReturn(id.get(i), i);
+            descReturn(id.get(i), i);
+            locReturn(id.get(i), i);
+            imageReturn(id.get(i), i);
+
+        }
+
+    }
+
+
+    public void tagReturn(ImageDetails id, int i){
+            String type = id.tagText;
             int[] ids = {R.id.textView, R.id.textView4, R.id.textView7, R.id.textView10, R.id.textView13};
             TextView text = (TextView) this.activity.findViewById(ids[i]);
             text.setText(type);
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-
     }
-    public void descReturn(JSONObject json, int i){
-        try{
-            String type = json.getString("descText");
+
+    public void descReturn(ImageDetails id, int i){
+
+            String type = id.descText;
             int[] ids = {R.id.textView2, R.id.textView5, R.id.textView8, R.id.textView11, R.id.textView14};
             TextView text = (TextView) this.activity.findViewById(ids[i]);
             text.setText(type);
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
-    public void locReturn(JSONObject json, int i){
-        try{
-            String type = json.getString("longitude");
-            String type1 = json.getString("latitude");
-            String loc = type + " " + type1;
+    public void locReturn(ImageDetails id, int i){
+
             int[] ids = {R.id.textView3, R.id.textView6, R.id.textView9, R.id.textView12, R.id.textView15};
             TextView text = (TextView) this.activity.findViewById(ids[i]);
-            text.setText(loc);
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+            DecimalFormat df2 = new DecimalFormat("###.##");
+            String type = Double.valueOf(df2.format(id.distance)) + " metres away";
+            text.setText(type);
     }
 
-    public void imageReturn(JSONObject json, int i){
-        try{
-            String type = json.getString("image");
+    public void imageReturn(ImageDetails id, int i){
+
+            String type = id.imageLink;
             String s = "http://nicholascarroll.info:3000" + type;
             int[] ids = {R.id.imageView, R.id.imageView2, R.id.imageView3, R.id.imageView4, R.id.imageView5};
             new DownloadImageTask((ImageView)this.activity.findViewById(ids[i]))
                     .execute(s);
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
     }
 }
-class RetrieveImages extends AsyncTask<String, Void, JSONArray> {
 
-    @Override
-    protected JSONArray doInBackground(String...params) {
-        StringBuilder builder = new StringBuilder();
-        String json = null;
-        JSONObject jsonObject = null;
-        JSONArray jsonArray = null;
-        // 1. create HttpClient
-        HttpClient httpclient = new DefaultHttpClient();
-
-        // 2. make GET request to the given URL
-        HttpGet httpGet = new HttpGet("http://nicholascarroll.info:3000/getimages");
-        HttpResponse response;
-        try{
-            response = httpclient.execute(httpGet);
-            HttpEntity entity = response.getEntity();
-            if (entity != null){
-                InputStream instream = entity.getContent();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(instream));
-                String line;
-                while((line = reader.readLine()) != null){
-                    builder.append(line + "\n");
-                }
-                reader.close();
-                json = builder.toString();
-
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        try{
-            jsonArray = new JSONArray(json);
-        }catch(JSONException e){
-            e.printStackTrace();
-        }
-        return jsonArray;
-    }
-}
 

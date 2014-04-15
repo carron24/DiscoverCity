@@ -1,6 +1,7 @@
 package com.carrollnicholas.discocity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -100,14 +101,23 @@ public class TagActivity extends ActionBarActivity {
                     {
 
                         tagText =  mEdit.getText().toString();
-                        descText = String.valueOf(spinner.getSelectedItem()) ;
-                        Log.v("Tag Text",tagText);
-                        Log.v("Description Text", descText);
-                        showCurrentLocation();
-                        UploadImage ui = new UploadImage();
-                        Log.v("Longitude", Double.toString(longi));
-                        Log.v("Latitude",Double.toString(lat));
-                        ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat));
+                        if(tagText.equals("")){
+                            Toast.makeText(TagActivity.this, "tag cannot be empty",
+                                    Toast.LENGTH_LONG).show();
+
+                        }
+                        else{
+                            tagText =  mEdit.getText().toString();
+                            descText = String.valueOf(spinner.getSelectedItem()) ;
+                            Log.v("Tag Text",tagText);
+                            Log.v("Description Text", descText);
+                            showCurrentLocation();
+                            UploadImage ui = new UploadImage();
+                            Log.v("Longitude", Double.toString(longi));
+                            Log.v("Latitude",Double.toString(lat));
+                            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat));
+                        }
+
 
 
                     }
@@ -219,7 +229,11 @@ private class MyLocationListener implements LocationListener {
                     client.execute(poster);
 
                     Intent myIntent = new Intent(TagActivity.this, ImageReturn.class);
+                    myIntent.putExtra("longitude", longiString);
+                    myIntent.putExtra("latitude", latString);
                     TagActivity.this.startActivity(myIntent);
+
+
 
                 }
                 catch (Exception e) {

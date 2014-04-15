@@ -1,9 +1,13 @@
 package com.carrollnicholas.discocity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +18,7 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         Bundle data = getIntent().getExtras();
-        ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");
+        final ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");
         TextView text = (TextView) findViewById(R.id.textView);
         text.setText(id.tagText);
         TextView text2 = (TextView) findViewById(R.id.textView2);
@@ -24,5 +28,21 @@ public class ResultActivity extends Activity {
         String s = "http://nicholascarroll.info:3000" + id.imageLink;
         new DownloadImageTask((ImageView)findViewById(R.id.imageView))
                 .execute(s);
+        Button mButton = (Button)findViewById(R.id.button);
+
+
+        mButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        Intent myIntent = new Intent(ResultActivity.this, MapActivity.class);
+                        myIntent.putExtra("imageDetails", id);
+                        ResultActivity.this.startActivity(myIntent);
+
+                    }
+                });
+
+
     }
 }
