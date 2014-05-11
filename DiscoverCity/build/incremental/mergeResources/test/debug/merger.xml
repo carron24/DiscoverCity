@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\Nicholas\DiscoverCity\src\androidTest\res" />
+        <source path="C:\Users\Nicholas\DiscoverCity\build\res\rs\test\debug" />
+        <source path="C:\Users\Nicholas\DiscoverCity\build\res\generated\test\debug" />
+    </dataSet>
+
+</merger>

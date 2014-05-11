@@ -130,7 +130,8 @@ public class TagActivity extends ActionBarActivity {
 
         MyLocationListener myLoc = new MyLocationListener();
         locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER,myLoc,null);
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        LocationManager locationManager2 = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        location = locationManager2.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if(location != null){
             String message = String.format(

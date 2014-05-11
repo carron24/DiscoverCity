@@ -308,7 +308,7 @@ int id action_context_bar 0x7f090020
 int id action_menu_divider 0x7f090018
 int id action_menu_presenter 0x7f090019
 int id action_mode_close_button 0x7f090027
-int id action_settings 0x7f09005d
+int id action_settings 0x7f090060
 int id activity_chooser_view_content 0x7f090028
 int id always 0x7f090012
 int id beginning 0x7f09000a
@@ -323,6 +323,7 @@ int id collapseActionView 0x7f090014
 int id default_activity_button 0x7f09002b
 int id dialog 0x7f090015
 int id disableHome 0x7f090008
+int id distance 0x7f09005e
 int id dropdown 0x7f090016
 int id editText 0x7f09005b
 int id edit_query 0x7f090033
@@ -367,8 +368,10 @@ int id showHome 0x7f090004
 int id showTitle 0x7f090006
 int id spinner 0x7f09005c
 int id split_action_bar 0x7f090021
+int id street 0x7f09005f
 int id submit_area 0x7f09003c
 int id tabMode 0x7f090002
+int id tag 0x7f09005d
 int id terrain 0x7f09000e
 int id textView 0x7f090041
 int id textView10 0x7f09004a
@@ -423,7 +426,8 @@ int layout activity_main 0x7f03001a
 int layout activity_map 0x7f03001b
 int layout activity_result 0x7f03001c
 int layout activity_tag 0x7f03001d
-int layout support_simple_spinner_dropdown_item 0x7f03001e
+int layout info_window_layout 0x7f03001e
+int layout support_simple_spinner_dropdown_item 0x7f03001f
 int menu camera 0x7f0e0000
 int menu image_return 0x7f0e0001
 int menu main 0x7f0e0002

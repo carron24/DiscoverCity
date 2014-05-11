@@ -7,6 +7,8 @@ import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Comparator;
+
 /**
  * Created by Nicholas on 14/04/2014.
  */
@@ -38,6 +40,16 @@ public class ImageDetails implements Parcelable {
     }
     // Getter and setter methods
 
+    public boolean equals(ImageDetails id){
+        return this.tagText.equals(id.tagText);
+    }
+
+    public int compare(ImageDetails o1, ImageDetails o2) {
+
+        return 0;
+    }
+
+
     public void toDistanceString(){
         this.distanceString = this.distance + "";
     }
@@ -52,6 +64,7 @@ public class ImageDetails implements Parcelable {
         latiData = data[4];
         distanceString = data[5];
     }
+
 
     public int describeContents(){
         return 0;

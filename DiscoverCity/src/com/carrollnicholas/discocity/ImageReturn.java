@@ -33,7 +33,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
 
 public class ImageReturn extends ActionBarActivity {
@@ -148,11 +152,32 @@ class JsonToInfo{
         return distances;
     }
 
+    public ArrayList<ImageDetails> removeDupes(ArrayList<ImageDetails> id){
+        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
+        Set<ImageDetails> s = new TreeSet<ImageDetails>(new Comparator<ImageDetails>() {
+
+            @Override
+            public int compare(ImageDetails o1, ImageDetails o2) {
+                if(o1.equals(o2)) {
+                    return 0;
+                }
+                else
+                    return 1;
+            }
+        });
+        s.addAll(id);
+        tempList.addAll(s);
+        Log.v(TAG, id.size() + "");
+        Log.v(TAG, tempList.size() + "");
+
+        return tempList;
+    }
     public ArrayList<ImageDetails> closestImages(ArrayList<ImageDetails> id, Location loc){
         ArrayList<Double> distances = getDistances(id, loc);
         ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
+        id = removeDupes(id);
         Collections.sort(distances);
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < 10; i++){
             for(ImageDetails temp : id){
                 if(distances.get(i) == temp.distance ){
                     tempList.add(temp);
@@ -184,6 +209,7 @@ class JsonToInfo{
     }
 
     public void displayReturnData(ArrayList<ImageDetails> id){
+        Log.v("size", id.size() + "");
         for(int i = 0; i < 5; i++){
             tagReturn(id.get(i), i);
             descReturn(id.get(i), i);

@@ -1141,7 +1141,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090018;
         public static final int action_menu_presenter=0x7f090019;
         public static final int action_mode_close_button=0x7f090027;
-        public static final int action_settings=0x7f09005d;
+        public static final int action_settings=0x7f090060;
         public static final int activity_chooser_view_content=0x7f090028;
         public static final int always=0x7f090012;
         public static final int beginning=0x7f09000a;
@@ -1156,6 +1156,7 @@ containing a value of this type.
         public static final int default_activity_button=0x7f09002b;
         public static final int dialog=0x7f090015;
         public static final int disableHome=0x7f090008;
+        public static final int distance=0x7f09005e;
         public static final int dropdown=0x7f090016;
         public static final int editText=0x7f09005b;
         public static final int edit_query=0x7f090033;
@@ -1200,8 +1201,10 @@ containing a value of this type.
         public static final int showTitle=0x7f090006;
         public static final int spinner=0x7f09005c;
         public static final int split_action_bar=0x7f090021;
+        public static final int street=0x7f09005f;
         public static final int submit_area=0x7f09003c;
         public static final int tabMode=0x7f090002;
+        public static final int tag=0x7f09005d;
         public static final int terrain=0x7f09000e;
         public static final int textView=0x7f090041;
         public static final int textView10=0x7f09004a;
@@ -1260,7 +1263,8 @@ containing a value of this type.
         public static final int activity_map=0x7f03001b;
         public static final int activity_result=0x7f03001c;
         public static final int activity_tag=0x7f03001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int info_window_layout=0x7f03001e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
         public static final int camera=0x7f0e0000;
