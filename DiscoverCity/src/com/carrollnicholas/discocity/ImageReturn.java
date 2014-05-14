@@ -8,6 +8,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.StaticLayout;
@@ -90,6 +91,20 @@ public class ImageReturn extends ActionBarActivity {
         b2.setOnClickListener(onClickListener);
         b3.setOnClickListener(onClickListener);
         b4.setOnClickListener(onClickListener);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void onBackPressed(){
+        NavUtils.navigateUpFromSameTask(this);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

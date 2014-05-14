@@ -22,17 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="com.carrollnicholas.discocity.TagActivity" android:screenOrientation="portrait">
+        <activity android:configChanges="orientation" android:label="@string/app_home" android:name="com.carrollnicholas.discocity.TagActivity" android:parentActivityName="com.carrollnicholas.discocity.CameraActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:label="@string/title_activity_image_return" android:name="com.carrollnicholas.discocity.ImageReturn">
+        <activity android:label="@string/app_home" android:name="com.carrollnicholas.discocity.ImageReturn" android:parentActivityName="com.carrollnicholas.discocity.CameraActivity">
         </activity>
-        <activity android:label="@string/title_activity_result" android:name="com.carrollnicholas.discocity.ResultActivity">
+        <activity android:label="@string/app_home" android:name="com.carrollnicholas.discocity.ResultActivity" android:parentActivityName="com.carrollnicholas.discocity.CameraActivity">
         </activity>
 
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyD4wt9grCtwni-v5gqq3GMQ_yQ78la3wsI"/>
 
-        <activity android:label="@string/title_activity_map" android:name="com.carrollnicholas.discocity.MapActivity">
+        <activity android:label="@string/app_home" android:name="com.carrollnicholas.discocity.MapActivity" android:parentActivityName="com.carrollnicholas.discocity.CameraActivity">
         </activity>
     </application>
 

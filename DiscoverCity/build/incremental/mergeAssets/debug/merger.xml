@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger>
 
+    <dataSet config="unspecified" >
+        <source path="C:\Users\Nicholas\DiscoverCity\build\exploded-aar\DiscoverCity.libs\opencv\unspecified\assets" />
+    </dataSet>
     <dataSet config="19.1.0" >
         <source path="C:\Users\Nicholas\DiscoverCity\build\exploded-aar\com.android.support\appcompat-v7\19.1.0\assets" />
     </dataSet>

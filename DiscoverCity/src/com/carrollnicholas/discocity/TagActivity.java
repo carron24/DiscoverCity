@@ -11,6 +11,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -32,15 +34,24 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+import org.opencv.highgui.Highgui;
+import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class TagActivity extends ActionBarActivity {
+public class TagActivity extends ActionBarActivity  {
 
     Button mButton;
     EditText mEdit;
-    EditText mEdit2;
 
     String tagText;
     String descText;
@@ -123,7 +134,13 @@ public class TagActivity extends ActionBarActivity {
                     }
                 });
 
-
+        if (!OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_5, this, mOpenCVCallBack))
+        {
+            Log.e("image", "Cannot connect to OpenCV Manager");
+        }
+        else{
+            Log.e("image", "Connected to OpenCV Manager");
+        }
     }
 
     private void showCurrentLocation() {
@@ -159,6 +176,8 @@ public class TagActivity extends ActionBarActivity {
         }
 
     }
+
+
 private class MyLocationListener implements LocationListener {
     public void onLocationChanged(Location location) {
         String message = String.format(
@@ -191,14 +210,12 @@ private class MyLocationListener implements LocationListener {
         return true;
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -257,4 +274,41 @@ private class MyLocationListener implements LocationListener {
             // Another interface callback
         }
     }
+
+    private BaseLoaderCallback mOpenCVCallBack = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS:
+                {
+                    Log.i("image", "OpenCV loaded successfully");
+                    Mat original_image = Highgui.imread(imageLocation);
+                    Mat converted_image = original_image.clone();
+                    List<Mat> ycrcb = new ArrayList<Mat>();
+                    Imgproc.cvtColor(original_image, converted_image, Imgproc.COLOR_BGR2YCrCb);
+                    Core.split(converted_image, ycrcb);
+                    Scalar m = Core.mean(ycrcb.get(0));
+                    Log.v("image1: ", m.toString());
+                } break;
+                default:
+                {
+                    super.onManagerConnected(status);
+                } break;
+            }
+        }
+    };
+
+    @Override
+    protected void onResume()
+    {
+        Log.i("image", "Called onResume");
+        super.onResume();
+
+        Log.i("image", "Trying to load OpenCV library");
+        if (!OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_4, this, mOpenCVCallBack))
+        {
+            Log.e("image", "Cannot connect to OpenCV Manager");
+        }
+    }
 }
+

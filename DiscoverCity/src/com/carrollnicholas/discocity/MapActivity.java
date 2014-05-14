@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -90,8 +91,9 @@ public class MapActivity extends Activity {
             LatLng latLng = new LatLng(Double.parseDouble(latString), Double.parseDouble(longiString));
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
             mMap.animateCamera(cameraUpdate);
+    }
 
-        }
+
 
 
     public String getAddress( String latString, String longiString) {

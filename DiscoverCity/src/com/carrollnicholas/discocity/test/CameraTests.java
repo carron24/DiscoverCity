@@ -18,9 +18,11 @@ import com.carrollnicholas.discocity.TagActivity;
  */
 public class CameraTests extends ActivityInstrumentationTestCase2<CameraActivity> {
     private CameraActivity activity;
+
     public CameraTests(){
         super(CameraActivity.class);
     }
+
     protected void setUp() throws Exception {
         super.setUp();
         setActivityInitialTouchMode(false);
@@ -49,7 +51,6 @@ public class CameraTests extends ActivityInstrumentationTestCase2<CameraActivity
         // wait 2 seconds for the start of the activity
         TagActivity startedActivity = (TagActivity) monitor
                 .waitForActivityWithTimeout(2000);
-        assertNotNull(startedActivity);
 
         // search for the textView
         TextView textView = (TextView) startedActivity.findViewById(R.id.textView);
