@@ -49,12 +49,14 @@ public class ImageReturn extends ActionBarActivity {
     Button b3;
     Button b4;
     Button b5;
-    static public ArrayList<ImageDetails> id = new ArrayList<ImageDetails>();
+    static public ArrayList<ImageDetails> id;
+    static public ArrayList<ImageDetails> tmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_return);
+        id = new ArrayList<ImageDetails>();
         b = (Button) findViewById(R.id.button);
         b1 = (Button) findViewById(R.id.button2);
         b2 = (Button) findViewById(R.id.button3);
@@ -83,8 +85,7 @@ public class ImageReturn extends ActionBarActivity {
 
 
         jt.infoReturn(jsonArray);
-        id = jt.closestImages(id,loc);
-        jt.displayReturnData(id);
+        tmp = jt.closestImages(id,loc);
 
         b.setOnClickListener(onClickListener);
         b1.setOnClickListener(onClickListener);
@@ -113,19 +114,19 @@ public class ImageReturn extends ActionBarActivity {
             Intent myIntent = new Intent(ImageReturn.this, ResultActivity.class);
             switch (v.getId()) {
                 case R.id.button:
-                    myIntent.putExtra("imageDetails", id.get(0));
+                    myIntent.putExtra("imageDetails", tmp.get(0));
                     break;
                 case R.id.button2:
-                    myIntent.putExtra("imageDetails", id.get(1));
+                    myIntent.putExtra("imageDetails", tmp.get(1));
                     break;
                 case R.id.button3:
-                    myIntent.putExtra("imageDetails", id.get(2));
+                    myIntent.putExtra("imageDetails", tmp.get(2));
                     break;
                 case R.id.button4:
-                    myIntent.putExtra("imageDetails", id.get(3));
+                    myIntent.putExtra("imageDetails", tmp.get(3));
                     break;
                 case R.id.button5:
-                    myIntent.putExtra("imageDetails", id.get(4));
+                    myIntent.putExtra("imageDetails", tmp.get(4));
                     break;
             }
             ImageReturn.this.startActivity(myIntent);
@@ -182,19 +183,25 @@ class JsonToInfo{
         });
         s.addAll(id);
         tempList.addAll(s);
-        Log.v(TAG, id.size() + "");
-        Log.v(TAG, tempList.size() + "");
-
+        for(ImageDetails tmp : tempList){
+            Log.v("set: ", tmp.tagText);
+        }
         return tempList;
     }
+
     public ArrayList<ImageDetails> closestImages(ArrayList<ImageDetails> id, Location loc){
-        ArrayList<Double> distances = getDistances(id, loc);
         ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
-        id = removeDupes(id);
+        id = fixBrightness(removeDupes(id));
+        ArrayList<Double> distances = getDistances(id, loc);
         Collections.sort(distances);
+        for(ImageDetails temp : tempList){
+            Log.v(TAG, ""+ temp.distance);
+        }
+
         for(int i = 0; i < 10; i++){
+            Log.v(TAG, id.get(i).brightness + " what");
             for(ImageDetails temp : id){
-                if(distances.get(i) == temp.distance ){
+                if(distances.get(i) == temp.distance){
                     tempList.add(temp);
                 }
             }
@@ -202,9 +209,20 @@ class JsonToInfo{
         for(ImageDetails temp : tempList){
             Log.v(TAG, ""+ temp.distance);
         }
+
+        displayReturnData(tempList);
         return tempList;
     }
 
+    public ArrayList<ImageDetails> fixBrightness(ArrayList<ImageDetails> id){
+        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
+        for(ImageDetails tmp : id){
+            if(tmp.brightness != null && Integer.parseInt(tmp.brightness) > 0){
+                tempList.add(tmp);
+            }
+        }
+        return tempList;
+    }
     public JSONArray infoReturn(JSONArray jsonArray){
         JSONArray jsReturn = null;
         for (int i = 0; i < jsonArray.length()-1; i++) {
@@ -225,6 +243,9 @@ class JsonToInfo{
 
     public void displayReturnData(ArrayList<ImageDetails> id){
         Log.v("size", id.size() + "");
+        for(ImageDetails tmp : id){
+            Log.v("tempList: ", tmp.tagText);
+        }
         for(int i = 0; i < 5; i++){
             tagReturn(id.get(i), i);
             descReturn(id.get(i), i);

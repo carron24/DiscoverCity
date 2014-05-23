@@ -1167,7 +1167,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f09001b;
         public static final int action_menu_presenter=0x7f09001c;
         public static final int action_mode_close_button=0x7f09002a;
-        public static final int action_settings=0x7f090063;
+        public static final int action_settings=0x7f090064;
         public static final int activity_chooser_view_content=0x7f09002b;
         public static final int always=0x7f090015;
         public static final int any=0x7f090009;
@@ -1184,9 +1184,9 @@ containing a value of this type.
         public static final int default_activity_button=0x7f09002e;
         public static final int dialog=0x7f090018;
         public static final int disableHome=0x7f090008;
-        public static final int distance=0x7f090061;
+        public static final int distance=0x7f090062;
         public static final int dropdown=0x7f090019;
-        public static final int editText=0x7f09005e;
+        public static final int editText=0x7f09005f;
         public static final int edit_query=0x7f090036;
         public static final int end=0x7f09000f;
         public static final int expand_activities_button=0x7f09002c;
@@ -1198,6 +1198,7 @@ containing a value of this type.
         public static final int icon=0x7f090030;
         public static final int ifRoom=0x7f090014;
         public static final int image=0x7f09002d;
+        public static final int imageButton=0x7f09005e;
         public static final int imageView=0x7f090053;
         public static final int imageView2=0x7f090054;
         public static final int imageView3=0x7f090055;
@@ -1228,12 +1229,12 @@ containing a value of this type.
         public static final int showCustom=0x7f090007;
         public static final int showHome=0x7f090004;
         public static final int showTitle=0x7f090006;
-        public static final int spinner=0x7f09005f;
+        public static final int spinner=0x7f090060;
         public static final int split_action_bar=0x7f090024;
-        public static final int street=0x7f090062;
+        public static final int street=0x7f090063;
         public static final int submit_area=0x7f09003f;
         public static final int tabMode=0x7f090002;
-        public static final int tag=0x7f090060;
+        public static final int tag=0x7f090061;
         public static final int terrain=0x7f090011;
         public static final int textView=0x7f090044;
         public static final int textView10=0x7f09004d;

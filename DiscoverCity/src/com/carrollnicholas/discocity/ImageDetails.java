@@ -18,6 +18,7 @@ public class ImageDetails implements Parcelable {
     public String imageLink;
     public String longiData;
     public String latiData;
+    public String brightness;
     public double distance;
     public String distanceString;
 
@@ -29,6 +30,7 @@ public class ImageDetails implements Parcelable {
             imageLink = json.getString("image");
             longiData = json.getString("longitude");
             latiData = json.getString("latitude");
+            brightness = json.getString("brightness");
             distanceString = "";
 
 
@@ -55,14 +57,16 @@ public class ImageDetails implements Parcelable {
     }
     // Parcelling part
     public ImageDetails(Parcel in){
-        String[] data = new String[6];
+        String[] data = new String[7];
         in.readStringArray(data);
         tagText = data[0];
         descText = data[1];
         imageLink = data[2];
         longiData = data[3];
         latiData = data[4];
-        distanceString = data[5];
+        brightness = data[5];
+        distanceString = data[6];
+
     }
 
 
@@ -73,7 +77,7 @@ public class ImageDetails implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[] {tagText, descText, imageLink,
-                               longiData, latiData, distanceString});
+                               longiData, latiData, brightness, distanceString});
     }
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public ImageDetails createFromParcel(Parcel in) {

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class ResultActivity extends Activity {
         TextView text3 = (TextView) findViewById(R.id.textView3);
         text3.setText(id.longiData + " " + id.latiData);
         String s = "http://nicholascarroll.info:3000" + id.imageLink;
-        new DownloadImageTask((ImageView)findViewById(R.id.imageView))
+        new DownloadImageTask((ImageButton)findViewById(R.id.imageButton))
                 .execute(s);
         Button mButton = (Button)findViewById(R.id.button);
 

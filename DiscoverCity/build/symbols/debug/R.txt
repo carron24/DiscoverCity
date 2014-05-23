@@ -310,7 +310,7 @@ int id action_context_bar 0x7f090023
 int id action_menu_divider 0x7f09001b
 int id action_menu_presenter 0x7f09001c
 int id action_mode_close_button 0x7f09002a
-int id action_settings 0x7f090063
+int id action_settings 0x7f090064
 int id activity_chooser_view_content 0x7f09002b
 int id always 0x7f090015
 int id any 0x7f090009
@@ -327,9 +327,9 @@ int id collapseActionView 0x7f090017
 int id default_activity_button 0x7f09002e
 int id dialog 0x7f090018
 int id disableHome 0x7f090008
-int id distance 0x7f090061
+int id distance 0x7f090062
 int id dropdown 0x7f090019
-int id editText 0x7f09005e
+int id editText 0x7f09005f
 int id edit_query 0x7f090036
 int id end 0x7f09000f
 int id expand_activities_button 0x7f09002c
@@ -341,6 +341,7 @@ int id hybrid 0x7f090012
 int id icon 0x7f090030
 int id ifRoom 0x7f090014
 int id image 0x7f09002d
+int id imageButton 0x7f09005e
 int id imageView 0x7f090053
 int id imageView2 0x7f090054
 int id imageView3 0x7f090055
@@ -371,12 +372,12 @@ int id shortcut 0x7f090034
 int id showCustom 0x7f090007
 int id showHome 0x7f090004
 int id showTitle 0x7f090006
-int id spinner 0x7f09005f
+int id spinner 0x7f090060
 int id split_action_bar 0x7f090024
-int id street 0x7f090062
+int id street 0x7f090063
 int id submit_area 0x7f09003f
 int id tabMode 0x7f090002
-int id tag 0x7f090060
+int id tag 0x7f090061
 int id terrain 0x7f090011
 int id textView 0x7f090044
 int id textView10 0x7f09004d

@@ -11,19 +11,18 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="81dp" />
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="Medium Text2"
         android:id="@+id/textView2"
-        android:layout_alignTop="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,14 +33,7 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/textView"
-        android:layout_marginTop="10dp" />
+
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -49,8 +41,15 @@
         android:layout_height="wrap_content"
         android:text="Show on Map"
         android:id="@+id/button"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"/>
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="280dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageButton"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY" />
 </RelativeLayout>

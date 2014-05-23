@@ -37,14 +37,20 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
 import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.highgui.Highgui;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.core.CvType.*;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -58,6 +64,8 @@ public class TagActivity extends ActionBarActivity  {
 
     Double longi;
     Double lat;
+
+    int brightness;
 
     String imageLocation;
 
@@ -110,7 +118,6 @@ public class TagActivity extends ActionBarActivity  {
                 {
                     public void onClick(View view)
                     {
-
                         tagText =  mEdit.getText().toString();
                         if(tagText.equals("")){
                             Toast.makeText(TagActivity.this, "tag cannot be empty",
@@ -119,14 +126,16 @@ public class TagActivity extends ActionBarActivity  {
                         }
                         else{
                             tagText =  mEdit.getText().toString();
+                            StringManipulation sm = new StringManipulation();
+                            tagText = sm.tagString(tagText);
+                            mEdit.setText(tagText);
+                            Toast.makeText(TagActivity.this, "Your photo has been tagged!",
+                                    Toast.LENGTH_LONG).show();
+
                             descText = String.valueOf(spinner.getSelectedItem()) ;
-                            Log.v("Tag Text",tagText);
-                            Log.v("Description Text", descText);
                             showCurrentLocation();
                             UploadImage ui = new UploadImage();
-                            Log.v("Longitude", Double.toString(longi));
-                            Log.v("Latitude",Double.toString(lat));
-                            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat));
+                            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat), Integer.toString(brightness));
                         }
 
 
@@ -184,7 +193,6 @@ private class MyLocationListener implements LocationListener {
                 "New Location \n Longitude: %1$s \n Latitude: %2$s",
                 location.getLongitude(), location.getLatitude()
         );
-        Toast.makeText(TagActivity.this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -229,6 +237,7 @@ private class MyLocationListener implements LocationListener {
                 String dText = params[1];
                 String longiString = params[2];
                 String latString = params[3];
+                String brightness = params[4];
                 try{
 
                     HttpClient client = new DefaultHttpClient();
@@ -241,6 +250,7 @@ private class MyLocationListener implements LocationListener {
                     entity.addPart("descText", new StringBody(dText));
                     entity.addPart("longitude", new StringBody(longiString));
                     entity.addPart("latitude", new StringBody(latString));
+                    entity.addPart("brightness", new StringBody(brightness));
 
                     poster.setEntity(entity);
 
@@ -288,7 +298,36 @@ private class MyLocationListener implements LocationListener {
                     Imgproc.cvtColor(original_image, converted_image, Imgproc.COLOR_BGR2YCrCb);
                     Core.split(converted_image, ycrcb);
                     Scalar m = Core.mean(ycrcb.get(0));
-                    Log.v("image1: ", m.toString());
+                    double[] btns = m.val;
+                    brightness = (int)btns[0];
+
+
+                    Mat dy = new Mat();
+                    Mat dx = new Mat();
+                    Mat tmp = new Mat();
+
+                    Imgproc.Sobel(original_image, dx,CvType.CV_32F, 1, 0);
+                    Imgproc.Sobel(original_image, dy,CvType.CV_32F, 0, 1);
+
+
+
+
+                    File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                            Environment.DIRECTORY_PICTURES), "DiscoverCity");
+
+                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                    try {
+                        Core.magnitude(dx, dy, dx);
+                        Highgui.imwrite(mediaStorageDir.getPath() + File.separator + "DisCity_" + timeStamp + ".jpg", dx);
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                    Toast.makeText(TagActivity.this,Core.sumElems(dx).toString() ,
+                            Toast.LENGTH_LONG).show();
+                    Log.v("magnitude", Core.sumElems(dx).toString());
+                    Log.v("image1: ", brightness+"");
                 } break;
                 default:
                 {
