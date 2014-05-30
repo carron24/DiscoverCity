@@ -104,6 +104,14 @@
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/colors_apptheme.xml -->
+    <eat-comment />
+
+    <color name="apptheme_color">#ffffc8</color>
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="black_overlay">#66000000</color>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/colors.xml -->
     <eat-comment />
 
@@ -266,6 +274,13 @@
 
         <!-- The ad unit ID. -->
         <attr name="adUnitId" format="string" />
+    </declare-styleable>
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/build/exploded-aar/DiscoverCity.libs/opencv/unspecified/res/values/values.xml -->
     <eat-comment />
@@ -691,6 +706,8 @@
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="hello_world">Hello world!</string>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
     <eat-comment />
@@ -699,10 +716,12 @@
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="show_photo">Show Photo</string>
     <string name="title_activity_image_return">ImageReturn</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_show_image">ShowImage</string>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/styles.xml -->
     <eat-comment />
 
@@ -716,6 +735,36 @@
 
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/themes_apptheme.xml -->
+    <eat-comment />
+
+    <style name="AppTheme1" parent="@style/_AppTheme" />
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <style name="ButtonBarButton" />
+
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">@style/ButtonBar</item>
+        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
+    </style>
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/styles_apptheme.xml -->
+    <eat-comment />
+
+    <style name="SpinnerAppTheme" parent="android:Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/apptheme_spinner_background_holo_light</item>
+        <item name="android:dropDownSelector">@drawable/apptheme_list_selector_holo_light</item>
     </style>
     <!-- From: file:/C:/Users/Nicholas/DiscoverCity/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values/values.xml -->
     <eat-comment />
@@ -1431,5 +1480,12 @@
     <style name="Widget.AppCompat.ProgressBar.Horizontal" parent="Widget.AppCompat.Base.ProgressBar.Horizontal" />
 
     <style name="Widget.AppCompat.Spinner.DropDown.ActionBar" parent="Widget.AppCompat.Base.Spinner" />
+    <!-- From: file:/C:/Users/Nicholas/DiscoverCity/res/values/themes_apptheme.xml -->
+    <eat-comment />
+
+    <style name="_AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:editTextBackground">@drawable/apptheme_edit_text_holo_light</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerAppTheme</item>
+    </style>
 
 </resources>

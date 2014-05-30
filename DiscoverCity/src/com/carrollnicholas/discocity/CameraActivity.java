@@ -50,6 +50,8 @@ public class CameraActivity extends ActionBarActivity {
 		preview.addView(mPreview);
 		
 		final Button button = (Button) findViewById(R.id.button);
+
+        button.setBackground(getResources().getDrawable(R.drawable.cam_selector));
 		button.setOnClickListener(
 				new View.OnClickListener() {
 					

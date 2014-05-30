@@ -74,11 +74,12 @@ public class ImageReturn extends ActionBarActivity {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        JsonToInfo jt = new JsonToInfo(this);
 
         Bundle extras = getIntent().getExtras();
         double longitude = Double.parseDouble(extras.getString("longitude"));
         double latitude = Double.parseDouble(extras.getString("latitude"));
+
+        JsonToInfo jt = new JsonToInfo(this, extras.getString("tagText"));
         Location loc = new Location("point a");
         loc.setLatitude(latitude);
         loc.setLongitude(longitude);
@@ -136,160 +137,5 @@ public class ImageReturn extends ActionBarActivity {
 
 }
 
-class JsonToInfo{
-    public Activity activity;
-
-    private static final String TAG = "JSONtoInfo";
-
-
-    public JsonToInfo(Activity ac){
-        this.activity = ac;
-    }
-
-
-    public ArrayList<Double> getDistances(ArrayList<ImageDetails> id, Location loc){
-        ArrayList<Double> distances = new ArrayList<Double>();
-        for (int i = 0; i < id.size(); i++) {
-            JSONObject json;
-            ImageDetails image = id.get(i);
-
-            double longi = Double.parseDouble(image.longiData);
-            double lati =  Double.parseDouble(image.latiData);
-            Location loc1 = new Location("point b");
-
-            loc1.setLatitude(lati);
-            loc1.setLongitude(longi);
-
-            double distance = loc.distanceTo(loc1);
-            distances.add(distance);
-            id.get(i).distance = distance;
-            id.get(i).distanceString = distance + "";
-        }
-        return distances;
-    }
-
-    public ArrayList<ImageDetails> removeDupes(ArrayList<ImageDetails> id){
-        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
-        Set<ImageDetails> s = new TreeSet<ImageDetails>(new Comparator<ImageDetails>() {
-
-            @Override
-            public int compare(ImageDetails o1, ImageDetails o2) {
-                if(o1.equals(o2)) {
-                    return 0;
-                }
-                else
-                    return 1;
-            }
-        });
-        s.addAll(id);
-        tempList.addAll(s);
-        for(ImageDetails tmp : tempList){
-            Log.v("set: ", tmp.tagText);
-        }
-        return tempList;
-    }
-
-    public ArrayList<ImageDetails> closestImages(ArrayList<ImageDetails> id, Location loc){
-        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
-        id = fixBrightness(removeDupes(id));
-        ArrayList<Double> distances = getDistances(id, loc);
-        Collections.sort(distances);
-        for(ImageDetails temp : tempList){
-            Log.v(TAG, ""+ temp.distance);
-        }
-
-        for(int i = 0; i < 10; i++){
-            Log.v(TAG, id.get(i).brightness + " what");
-            for(ImageDetails temp : id){
-                if(distances.get(i) == temp.distance){
-                    tempList.add(temp);
-                }
-            }
-        }
-        for(ImageDetails temp : tempList){
-            Log.v(TAG, ""+ temp.distance);
-        }
-
-        displayReturnData(tempList);
-        return tempList;
-    }
-
-    public ArrayList<ImageDetails> fixBrightness(ArrayList<ImageDetails> id){
-        ArrayList<ImageDetails> tempList = new ArrayList<ImageDetails>();
-        for(ImageDetails tmp : id){
-            if(tmp.brightness != null && Integer.parseInt(tmp.brightness) > 0){
-                tempList.add(tmp);
-            }
-        }
-        return tempList;
-    }
-    public JSONArray infoReturn(JSONArray jsonArray){
-        JSONArray jsReturn = null;
-        for (int i = 0; i < jsonArray.length()-1; i++) {
-            JSONObject json;
-            try {
-                json = jsonArray.getJSONObject(i);
-                ImageDetails jsonDetails = new ImageDetails(json);
-                ImageReturn.id.add(jsonDetails);
-
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-        }
-        return jsReturn;
-    }
-
-    public void displayReturnData(ArrayList<ImageDetails> id){
-        Log.v("size", id.size() + "");
-        for(ImageDetails tmp : id){
-            Log.v("tempList: ", tmp.tagText);
-        }
-        for(int i = 0; i < 5; i++){
-            tagReturn(id.get(i), i);
-            descReturn(id.get(i), i);
-            locReturn(id.get(i), i);
-            imageReturn(id.get(i), i);
-
-        }
-
-    }
-
-
-    public void tagReturn(ImageDetails id, int i){
-            String type = id.tagText;
-            int[] ids = {R.id.textView, R.id.textView4, R.id.textView7, R.id.textView10, R.id.textView13};
-            TextView text = (TextView) this.activity.findViewById(ids[i]);
-            text.setText(type);
-    }
-
-    public void descReturn(ImageDetails id, int i){
-
-            String type = id.descText;
-            int[] ids = {R.id.textView2, R.id.textView5, R.id.textView8, R.id.textView11, R.id.textView14};
-            TextView text = (TextView) this.activity.findViewById(ids[i]);
-            text.setText(type);
-    }
-
-    public void locReturn(ImageDetails id, int i){
-
-            int[] ids = {R.id.textView3, R.id.textView6, R.id.textView9, R.id.textView12, R.id.textView15};
-            TextView text = (TextView) this.activity.findViewById(ids[i]);
-            DecimalFormat df2 = new DecimalFormat("###.##");
-            String type = Double.valueOf(df2.format(id.distance)) + " metres away";
-            text.setText(type);
-    }
-
-    public void imageReturn(ImageDetails id, int i){
-
-            String type = id.imageLink;
-            String s = "http://nicholascarroll.info:3000" + type;
-            int[] ids = {R.id.imageView, R.id.imageView2, R.id.imageView3, R.id.imageView4, R.id.imageView5};
-            new DownloadImageTask((ImageView)this.activity.findViewById(ids[i]))
-                    .execute(s);
-
-    }
-}
 
 

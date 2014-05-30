@@ -3,9 +3,12 @@ package com.carrollnicholas.discocity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,8 +16,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -48,6 +54,7 @@ import org.opencv.core.CvType.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,6 +73,7 @@ public class TagActivity extends ActionBarActivity  {
     Double lat;
 
     int brightness;
+    int sharpness;
 
     String imageLocation;
 
@@ -83,15 +91,44 @@ public class TagActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag);
 
-        mButton = (Button)findViewById(R.id.button);
-        mEdit   = (EditText)findViewById(R.id.editText);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
+
+        RelativeLayout rLayout = (RelativeLayout)findViewById(R.id.relLayout);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
+        mButton = (Button)findViewById(R.id.button);
+        mButton.setBackground(getResources().getDrawable(R.drawable.buttonselector));
+        mEdit   = (EditText)findViewById(R.id.editText);
+
+        mEdit.setOnKeyListener(new View.OnKeyListener()
+        {
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if (event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    switch (keyCode)
+                    {
+                        case KeyEvent.KEYCODE_DPAD_CENTER:
+                        case KeyEvent.KEYCODE_ENTER:
+                            buttonClicked(spinner);
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
+
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.planets_array, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+                R.array.planets_array, R.layout.spinner_text);
+
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+
         spinner.setAdapter(adapter);
 
         Bundle extras = getIntent().getExtras();
@@ -103,9 +140,11 @@ public class TagActivity extends ActionBarActivity  {
         if(imgFile.exists()){
 
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
+            Drawable drawBit = new BitmapDrawable(getResources(), myBitmap);
             ImageView myImage = (ImageView) findViewById(R.id.imageView);
-            myImage.setImageBitmap(myBitmap);
+           // myImage.setImageBitmap(myBitmap);
+            rLayout.setBackground(drawBit);
+
 
         }
 
@@ -118,28 +157,7 @@ public class TagActivity extends ActionBarActivity  {
                 {
                     public void onClick(View view)
                     {
-                        tagText =  mEdit.getText().toString();
-                        if(tagText.equals("")){
-                            Toast.makeText(TagActivity.this, "tag cannot be empty",
-                                    Toast.LENGTH_LONG).show();
-
-                        }
-                        else{
-                            tagText =  mEdit.getText().toString();
-                            StringManipulation sm = new StringManipulation();
-                            tagText = sm.tagString(tagText);
-                            mEdit.setText(tagText);
-                            Toast.makeText(TagActivity.this, "Your photo has been tagged!",
-                                    Toast.LENGTH_LONG).show();
-
-                            descText = String.valueOf(spinner.getSelectedItem()) ;
-                            showCurrentLocation();
-                            UploadImage ui = new UploadImage();
-                            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat), Integer.toString(brightness));
-                        }
-
-
-
+                        buttonClicked(spinner);
                     }
                 });
 
@@ -152,6 +170,28 @@ public class TagActivity extends ActionBarActivity  {
         }
     }
 
+
+    private void buttonClicked(Spinner spinner){
+        tagText =  mEdit.getText().toString();
+        if(tagText.equals("")){
+            Toast.makeText(TagActivity.this, "tag cannot be empty",
+                    Toast.LENGTH_LONG).show();
+
+        }
+        else{
+            tagText =  mEdit.getText().toString();
+            StringManipulation sm = new StringManipulation();
+            tagText = sm.tagString(tagText);
+            mEdit.setText(tagText);
+            Toast.makeText(TagActivity.this, "Your photo has been tagged!",
+                    Toast.LENGTH_LONG).show();
+
+            descText = String.valueOf(spinner.getSelectedItem()) ;
+            showCurrentLocation();
+            UploadImage ui = new UploadImage();
+            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat), Integer.toString(brightness), Integer.toString(sharpness));
+        }
+    }
     private void showCurrentLocation() {
 
         MyLocationListener myLoc = new MyLocationListener();
@@ -238,6 +278,7 @@ private class MyLocationListener implements LocationListener {
                 String longiString = params[2];
                 String latString = params[3];
                 String brightness = params[4];
+                String sharpness = params[5];
                 try{
 
                     HttpClient client = new DefaultHttpClient();
@@ -251,14 +292,18 @@ private class MyLocationListener implements LocationListener {
                     entity.addPart("longitude", new StringBody(longiString));
                     entity.addPart("latitude", new StringBody(latString));
                     entity.addPart("brightness", new StringBody(brightness));
+                    entity.addPart("sharpness", new StringBody(sharpness));
 
                     poster.setEntity(entity);
 
                     client.execute(poster);
 
+
+
                     Intent myIntent = new Intent(TagActivity.this, ImageReturn.class);
                     myIntent.putExtra("longitude", longiString);
                     myIntent.putExtra("latitude", latString);
+                    myIntent.putExtra("tagText", tagText);
                     TagActivity.this.startActivity(myIntent);
 
 
@@ -297,7 +342,8 @@ private class MyLocationListener implements LocationListener {
                     List<Mat> ycrcb = new ArrayList<Mat>();
                     Imgproc.cvtColor(original_image, converted_image, Imgproc.COLOR_BGR2YCrCb);
                     Core.split(converted_image, ycrcb);
-                    Scalar m = Core.mean(ycrcb.get(0));
+                    Scalar m = Core.sumElems(ycrcb.get(0));
+
                     double[] btns = m.val;
                     brightness = (int)btns[0];
 
@@ -324,10 +370,19 @@ private class MyLocationListener implements LocationListener {
                         e.printStackTrace();
                     }
 
-                    Toast.makeText(TagActivity.this,Core.sumElems(dx).toString() ,
+                    Toast.makeText(TagActivity.this, brightness + "" ,
                             Toast.LENGTH_LONG).show();
-                    Log.v("magnitude", Core.sumElems(dx).toString());
-                    Log.v("image1: ", brightness+"");
+
+                    Scalar n = Core.sumElems(dx);
+                    double spns[] = n.val;
+                    sharpness = (int)spns[0];
+                    Log.v("OpenCV1", sharpness+" sharpness");
+                    Log.v("OpenCV1", brightness+" brightness");
+                    brightness = brightness/1000000;
+                    sharpness = sharpness/100000;
+
+                    Log.v("OpenCV1", sharpness+" sharpness");
+                    Log.v("OpenCV1", brightness+" brightness");
                 } break;
                 default:
                 {
@@ -343,11 +398,6 @@ private class MyLocationListener implements LocationListener {
         Log.i("image", "Called onResume");
         super.onResume();
 
-        Log.i("image", "Trying to load OpenCV library");
-        if (!OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_4, this, mOpenCVCallBack))
-        {
-            Log.e("image", "Cannot connect to OpenCV Manager");
-        }
     }
 }
 

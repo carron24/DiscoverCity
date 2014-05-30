@@ -15309,6 +15309,206 @@ false
     <dataSet config="main" >
         <source path="C:\Users\Nicholas\DiscoverCity\res" >
             <file
+                name="apptheme_activated_background_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_activated_background_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_btn_radio_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_edit_text_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_edit_text_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_item_background_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_item_background_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_background_transition_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_list_selector_background_transition_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_list_selector_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_spinner_background_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\apptheme_spinner_background_holo_light.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="buttonselector"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\buttonselector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="buttonshape"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\buttonshape.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="button_pressed"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\button_pressed.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="cam_button"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\cam_button.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="cam_pressed"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\cam_pressed.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="cam_selector"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\cam_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="editborder"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\editborder.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="image_border"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\image_border.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="spinner"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\spinner.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_off_disabled_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_off_focused_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_off_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_off_pressed_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_on_disabled_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_on_focused_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_on_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_btn_radio_on_pressed_holo_light.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_activated_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_list_activated_holo.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_focused_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_list_focused_holo.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_longpressed_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_list_longpressed_holo.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_list_pressed_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_list_selector_disabled_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_spinner_default_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_spinner_disabled_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_spinner_focused_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_spinner_pressed_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_activated_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_textfield_activated_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_textfield_default_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_textfield_disabled_focused_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_textfield_disabled_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\apptheme_textfield_focused_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="a_camera"
                 path="C:\Users\Nicholas\DiscoverCity\res\drawable-hdpi\a_camera.png"
                 qualifiers="hdpi"
@@ -15364,6 +15564,11 @@ false
                 qualifiers=""
                 type="layout" />
             <file
+                name="activity_show_image"
+                path="C:\Users\Nicholas\DiscoverCity\res\layout\activity_show_image.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="activity_tag"
                 path="C:\Users\Nicholas\DiscoverCity\res\layout\activity_tag.xml"
                 qualifiers=""
@@ -15371,6 +15576,11 @@ false
             <file
                 name="info_window_layout"
                 path="C:\Users\Nicholas\DiscoverCity\res\layout\info_window_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="spinner_text"
+                path="C:\Users\Nicholas\DiscoverCity\res\layout\spinner_text.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -15386,6 +15596,11 @@ false
             <file
                 name="main"
                 path="C:\Users\Nicholas\DiscoverCity\res\menu\main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="show_image"
+                path="C:\Users\Nicholas\DiscoverCity\res\menu\show_image.xml"
                 qualifiers=""
                 type="menu" />
             <file
@@ -15427,6 +15642,30 @@ Every 5 minutes
                 </string-array>
             </file>
             <file
+                path="C:\Users\Nicholas\DiscoverCity\res\values\attrs.xml"
+                qualifiers="" >
+                <declare-styleable name="ButtonBarContainerTheme" >
+                    <attr
+                        name="metaButtonBarStyle"
+                        format="reference" />
+                    <attr
+                        name="metaButtonBarButtonStyle"
+                        format="reference" />
+                </declare-styleable>
+            </file>
+            <file
+                path="C:\Users\Nicholas\DiscoverCity\res\values\colors.xml"
+                qualifiers="" >
+                <color name="black_overlay" >#66000000
+                </color>
+            </file>
+            <file
+                path="C:\Users\Nicholas\DiscoverCity\res\values\colors_apptheme.xml"
+                qualifiers="" >
+                <color name="apptheme_color" >#ffffc8
+                </color>
+            </file>
+            <file
                 path="C:\Users\Nicholas\DiscoverCity\res\values\dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
@@ -15447,7 +15686,15 @@ Every 5 minutes
                 </string>
                 <string name="app_name" >DiscoverCity
                 </string>
+                <string name="show_photo" >Show Photo
+                </string>
+                <string name="dummy_content" >DUMMY\nCONTENT
+                </string>
+                <string name="title_activity_show_image" >ShowImage
+                </string>
                 <string name="hello_world" >Hello world!
+                </string>
+                <string name="dummy_button" >Dummy Button
                 </string>
 
                 <string-array name="planets_array" >
@@ -15485,11 +15732,82 @@ Other
                     -->
                 </style>
 
+                <style name="ButtonBar" >
+                    <item name="android:paddingLeft">
+2dp
+                    </item>
+                    <item name="android:paddingTop">
+5dp
+                    </item>
+                    <item name="android:paddingRight">
+2dp
+                    </item>
+                    <item name="android:paddingBottom">
+0dp
+                    </item>
+                    <item name="android:background">
+@android:drawable/bottom_bar
+                    </item>
+                </style>
+
+                <style
+                    name="FullscreenTheme"
+                    parent="android:Theme.NoTitleBar" >
+                    <item name="android:windowContentOverlay">
+@null
+                    </item>
+                    <item name="android:windowBackground">
+@null
+                    </item>
+                    <item name="metaButtonBarStyle">
+@style/ButtonBar
+                    </item>
+                    <item name="metaButtonBarButtonStyle">
+@style/ButtonBarButton
+                    </item>
+                </style>
+
+                <style name="ButtonBarButton" />
+
                 <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
                     <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+            </file>
+            <file
+                path="C:\Users\Nicholas\DiscoverCity\res\values\styles_apptheme.xml"
+                qualifiers="" >
+
+                <style
+                    name="SpinnerAppTheme"
+                    parent="android:Widget.Holo.Light.Spinner" >
+                    <item name="android:background">
+@drawable/apptheme_spinner_background_holo_light
+                    </item>
+                    <item name="android:dropDownSelector">
+@drawable/apptheme_list_selector_holo_light
+                    </item>
+                </style>
+            </file>
+            <file
+                path="C:\Users\Nicholas\DiscoverCity\res\values\themes_apptheme.xml"
+                qualifiers="" >
+
+                <style
+                    name="AppTheme1"
+                    parent="@style/_AppTheme" />
+
+                <style
+                    name="_AppTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+                    <item name="android:editTextBackground">
+@drawable/apptheme_edit_text_holo_light
+                    </item>
+                    <item name="android:dropDownSpinnerStyle">
+@style/SpinnerAppTheme
+                    </item>
                 </style>
             </file>
             <file
@@ -15501,6 +15819,34 @@ Other
             <file
                 path="C:\Users\Nicholas\DiscoverCity\res\values-v11\styles.xml"
                 qualifiers="v11" >
+
+                <style
+                    name="FullscreenTheme"
+                    parent="android:Theme.Holo" >
+                    <item name="android:actionBarStyle">
+@style/FullscreenActionBarStyle
+                    </item>
+                    <item name="android:windowActionBarOverlay">
+true
+                    </item>
+                    <item name="android:windowBackground">
+@null
+                    </item>
+                    <item name="metaButtonBarStyle">
+?android:attr/buttonBarStyle
+                    </item>
+                    <item name="metaButtonBarButtonStyle">
+?android:attr/buttonBarButtonStyle
+                    </item>
+                </style>
+
+                <style
+                    name="FullscreenActionBarStyle"
+                    parent="android:Widget.Holo.ActionBar" >
+                    <item name="android:background">
+@color/black_overlay
+                    </item>
+                </style>
 
                 <style
                     name="AppBaseTheme"
@@ -15531,6 +15877,381 @@ Other
                 path="C:\Users\Nicholas\DiscoverCity\res\xml\preferences.xml"
                 qualifiers=""
                 type="xml" />
+            <file
+                name="apptheme_textfield_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_textfield_focused_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_spinner_focused_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_list_selector_disabled_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_spinner_default_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_on_focused_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_on_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_off_focused_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_spinner_disabled_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_textfield_focused_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_list_pressed_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_textfield_default_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_textfield_focused_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_activated_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_textfield_activated_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_off_disabled_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_off_disabled_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_off_focused_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_spinner_default_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_spinner_pressed_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_focused_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_list_focused_holo.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_on_disabled_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_activated_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_list_activated_holo.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_activated_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_textfield_activated_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_off_focused_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_on_focused_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_list_selector_disabled_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_off_pressed_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_spinner_disabled_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_focused_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_list_focused_holo.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_on_pressed_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_longpressed_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_list_longpressed_holo.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_spinner_disabled_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_selector_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_list_selector_disabled_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_on_disabled_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_textfield_default_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_spinner_default_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_textfield_disabled_focused_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_on_focused_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_on_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_longpressed_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_list_longpressed_holo.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_spinner_focused_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_on_pressed_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_textfield_disabled_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_focused_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_list_focused_holo.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_activated_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_list_activated_holo.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_textfield_disabled_focused_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_on_disabled_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_on_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_list_pressed_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_list_pressed_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_spinner_pressed_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_textfield_disabled_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_spinner_pressed_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_textfield_disabled_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_default_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_textfield_default_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_off_pressed_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_off_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_on_disabled_focused_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_off_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_activated_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_list_activated_holo.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_list_longpressed_holo"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_list_longpressed_holo.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_textfield_disabled_focused_holo_light.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_off_disabled_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_on_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_btn_radio_on_pressed_holo_light.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_pressed_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_off_pressed_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_disabled_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_btn_radio_off_disabled_focused_holo_light.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_spinner_focused_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xxhdpi\apptheme_spinner_focused_holo_light.9.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="apptheme_btn_radio_off_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-mdpi\apptheme_btn_radio_off_holo_light.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="apptheme_textfield_activated_holo_light"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable-xhdpi\apptheme_textfield_activated_holo_light.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="show_button"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\show_button.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="show_button_selector"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\show_button_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="show_button_pressed"
+                path="C:\Users\Nicholas\DiscoverCity\res\drawable\show_button_pressed.xml"
+                qualifiers=""
+                type="drawable" />
         </source>
         <source path="C:\Users\Nicholas\DiscoverCity\build\res\rs\debug" />
         <source path="C:\Users\Nicholas\DiscoverCity\build\res\generated\debug" />

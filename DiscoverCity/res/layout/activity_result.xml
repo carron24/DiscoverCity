@@ -1,55 +1,97 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/resultLayout"
     tools:context="${packageName}.${activityClass}">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/full_screen"
+        android:layout_alignBottom="@+id/map_button"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+    <RelativeLayout
+        android:id="@+id/childLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@id/map_button"
+        android:background="#66000000">
+        <!-- This will be your overlay so here you can add your login button ect -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textView3"
+            android:textColor="#dddddd"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text2"
-        android:id="@+id/textView2"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text2"
+            android:id="@+id/textView2"
 
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+            android:textColor="#ffffff"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_above="@+id/textView3"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
-
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView"
+            android:textColor="#ffffff"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_above="@+id/textView2"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="Show on Map"
-        android:id="@+id/button"
+        android:id="@+id/map_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/show_button_selector"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
 
-    <ImageButton
-        android:layout_width="280dp"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageButton"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:layout_above="@+id/childLayout" />
+
+
 </RelativeLayout>

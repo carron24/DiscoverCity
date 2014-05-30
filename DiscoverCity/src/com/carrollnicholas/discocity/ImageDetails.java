@@ -19,6 +19,7 @@ public class ImageDetails implements Parcelable {
     public String longiData;
     public String latiData;
     public String brightness;
+    public String sharpness;
     public double distance;
     public String distanceString;
 
@@ -31,6 +32,7 @@ public class ImageDetails implements Parcelable {
             longiData = json.getString("longitude");
             latiData = json.getString("latitude");
             brightness = json.getString("brightness");
+            sharpness = json.getString("sharpness");
             distanceString = "";
 
 
@@ -39,6 +41,13 @@ public class ImageDetails implements Parcelable {
         catch(JSONException e){
             e.printStackTrace();
         }
+    }
+
+    public ImageDetails(){
+        tagText = "null";
+        brightness = "0";
+        sharpness = "0";
+        distanceString = "";
     }
     // Getter and setter methods
 
@@ -51,13 +60,18 @@ public class ImageDetails implements Parcelable {
         return 0;
     }
 
+    public boolean sharpCompare(ImageDetails id){
+
+        return Integer.parseInt(this.sharpness) > Integer.parseInt(id.sharpness);
+    }
+
 
     public void toDistanceString(){
         this.distanceString = this.distance + "";
     }
     // Parcelling part
     public ImageDetails(Parcel in){
-        String[] data = new String[7];
+        String[] data = new String[8];
         in.readStringArray(data);
         tagText = data[0];
         descText = data[1];
@@ -65,7 +79,8 @@ public class ImageDetails implements Parcelable {
         longiData = data[3];
         latiData = data[4];
         brightness = data[5];
-        distanceString = data[6];
+        sharpness = data[6];
+        distanceString = data[7];
 
     }
 
@@ -77,7 +92,7 @@ public class ImageDetails implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[] {tagText, descText, imageLink,
-                               longiData, latiData, brightness, distanceString});
+                               longiData, latiData, brightness,sharpness, distanceString});
     }
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public ImageDetails createFromParcel(Parcel in) {

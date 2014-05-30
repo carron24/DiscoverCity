@@ -17,7 +17,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:cropToPadding="false"
-        android:background="@drawable/camera_icon"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/cam_button"
       />
+
 
 </RelativeLayout>

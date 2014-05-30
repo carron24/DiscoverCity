@@ -15,7 +15,11 @@
     </string-array>
 
     <string name="title_activity_main">MainActivity</string>
+    <string name="show_photo">Show Photo</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_show_image">ShowImage</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
