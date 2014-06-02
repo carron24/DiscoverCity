@@ -47,6 +47,9 @@ import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfDouble;
+import org.opencv.core.MatOfFloat;
+import org.opencv.core.MatOfInt;
 import org.opencv.core.Scalar;
 import org.opencv.highgui.Highgui;
 import org.opencv.imgproc.Imgproc;
@@ -57,6 +60,7 @@ import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -74,6 +78,7 @@ public class TagActivity extends ActionBarActivity  {
 
     int brightness;
     int sharpness;
+    int contrast;
 
     String imageLocation;
 
@@ -189,7 +194,8 @@ public class TagActivity extends ActionBarActivity  {
             descText = String.valueOf(spinner.getSelectedItem()) ;
             showCurrentLocation();
             UploadImage ui = new UploadImage();
-            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat), Integer.toString(brightness), Integer.toString(sharpness));
+            ui.execute(tagText, descText, Double.toString(longi), Double.toString(lat), Integer.toString(brightness), Integer.toString(sharpness),
+                    Integer.toString(contrast));
         }
     }
     private void showCurrentLocation() {
@@ -279,6 +285,7 @@ private class MyLocationListener implements LocationListener {
                 String latString = params[3];
                 String brightness = params[4];
                 String sharpness = params[5];
+                String contrast = params[6];
                 try{
 
                     HttpClient client = new DefaultHttpClient();
@@ -293,6 +300,7 @@ private class MyLocationListener implements LocationListener {
                     entity.addPart("latitude", new StringBody(latString));
                     entity.addPart("brightness", new StringBody(brightness));
                     entity.addPart("sharpness", new StringBody(sharpness));
+                    entity.addPart("contrast", new StringBody(contrast));
 
                     poster.setEntity(entity);
 
@@ -338,48 +346,12 @@ private class MyLocationListener implements LocationListener {
                 {
                     Log.i("image", "OpenCV loaded successfully");
                     Mat original_image = Highgui.imread(imageLocation);
-                    Mat converted_image = original_image.clone();
-                    List<Mat> ycrcb = new ArrayList<Mat>();
-                    Imgproc.cvtColor(original_image, converted_image, Imgproc.COLOR_BGR2YCrCb);
-                    Core.split(converted_image, ycrcb);
-                    Scalar m = Core.sumElems(ycrcb.get(0));
-
-                    double[] btns = m.val;
-                    brightness = (int)btns[0];
 
 
-                    Mat dy = new Mat();
-                    Mat dx = new Mat();
-                    Mat tmp = new Mat();
-
-                    Imgproc.Sobel(original_image, dx,CvType.CV_32F, 1, 0);
-                    Imgproc.Sobel(original_image, dy,CvType.CV_32F, 0, 1);
-
-
-
-
-                    File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_PICTURES), "DiscoverCity");
-
-                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    try {
-                        Core.magnitude(dx, dy, dx);
-                        Highgui.imwrite(mediaStorageDir.getPath() + File.separator + "DisCity_" + timeStamp + ".jpg", dx);
-                    }
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
-
-                    Toast.makeText(TagActivity.this, brightness + "" ,
-                            Toast.LENGTH_LONG).show();
-
-                    Scalar n = Core.sumElems(dx);
-                    double spns[] = n.val;
-                    sharpness = (int)spns[0];
                     Log.v("OpenCV1", sharpness+" sharpness");
                     Log.v("OpenCV1", brightness+" brightness");
-                    brightness = brightness/1000000;
-                    sharpness = sharpness/100000;
+                    brightness = getBrightness(original_image)/1000000;
+                    sharpness = getSharpness(original_image)/100000;
 
                     Log.v("OpenCV1", sharpness+" sharpness");
                     Log.v("OpenCV1", brightness+" brightness");
@@ -392,6 +364,52 @@ private class MyLocationListener implements LocationListener {
         }
     };
 
+    private int getBrightness(Mat image){
+
+        Mat converted_image = image.clone();
+        List<Mat> ycrcb = new ArrayList<Mat>();
+        Imgproc.cvtColor(image, converted_image, Imgproc.COLOR_BGR2YCrCb);
+        Core.split(converted_image, ycrcb);
+        Scalar m = Core.sumElems(ycrcb.get(0));
+
+        contrast = getContrast(ycrcb.get(0));
+        double[] btns = m.val;
+        return (int)btns[0];
+
+    }
+    private int getSharpness(Mat image){
+
+        Mat dy = new Mat();
+        Mat dx = new Mat();
+
+        Imgproc.Sobel(image, dx,CvType.CV_32F, 1, 0);
+        Imgproc.Sobel(image, dy,CvType.CV_32F, 0, 1);
+
+        Core.magnitude(dx,dy,dx);
+        Scalar n = Core.sumElems(dx);
+
+        double spns[] = n.val;
+        return (int)spns[0];
+    }
+
+    private int getContrast(Mat tmp){
+        Mat grey = tmp.clone();
+
+        Imgproc.cvtColor(tmp, grey, Imgproc.COLOR_YUV2GRAY_420);
+        Core.MinMaxLocResult minMax = Core.minMaxLoc(grey);
+        Log.v("whatthecraic: ", minMax.maxVal + "");
+        Log.v("whatthecraic: ", minMax.minVal + "");
+        Scalar v = Core.mean(grey);
+
+        MatOfDouble mean = new MatOfDouble();
+        MatOfDouble std = new MatOfDouble();
+
+        Core.meanStdDev(tmp, mean, std);
+
+        double[] sdev = std.toArray();
+
+        return (int)sdev[0];
+    }
     @Override
     protected void onResume()
     {

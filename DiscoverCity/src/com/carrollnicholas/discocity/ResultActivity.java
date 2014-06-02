@@ -34,12 +34,12 @@ public class ResultActivity extends ActionBarActivity {
         Bundle data = getIntent().getExtras();
         final ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");
         TextView text = (TextView) findViewById(R.id.textView);
-        text.setText(id.tagText);
         TextView text2 = (TextView) findViewById(R.id.textView2);
-        text2.setText(id.descText);
+        text.setText(id.getTagText());
+        text2.setText(id.getDescText());
         TextView text3 = (TextView) findViewById(R.id.textView3);
-        text3.setText(id.longiData + " " + id.latiData);
-        String s = "http://nicholascarroll.info:3000" + id.imageLink;
+        text3.setText(id.getLongiData() + " " + id.getLatiData());
+        String s = "http://nicholascarroll.info:3000" + id.getImageLink();
         ImageView fullScreenImage = (ImageView)findViewById(R.id.full_screen);
         new DownloadImageTask(fullScreenImage)
                 .execute(s);

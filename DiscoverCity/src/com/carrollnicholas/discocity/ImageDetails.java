@@ -7,21 +7,24 @@ import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Created by Nicholas on 14/04/2014.
  */
 public class ImageDetails implements Parcelable {
-    public String tagText;
-    public String descText;
-    public String imageLink;
+    private String tagText;
+    private String descText;
+    private String imageLink;
     public String longiData;
     public String latiData;
-    public String brightness;
-    public String sharpness;
-    public double distance;
-    public String distanceString;
+    private String brightness;
+    private String sharpness;
+    private String contrast;
+    private double distance;
+    private String distanceString;
 
     // Constructor
     public ImageDetails(JSONObject json){
@@ -33,6 +36,7 @@ public class ImageDetails implements Parcelable {
             latiData = json.getString("latitude");
             brightness = json.getString("brightness");
             sharpness = json.getString("sharpness");
+            contrast = json.getString("contrast");
             distanceString = "";
 
 
@@ -50,6 +54,41 @@ public class ImageDetails implements Parcelable {
         distanceString = "";
     }
     // Getter and setter methods
+
+    public String getTagText(){
+        return tagText;
+    }
+    public String getDescText(){
+        return descText;
+    }
+    public String getImageLink(){
+        return imageLink;
+    }
+    public String getLongiData(){
+        return longiData;
+    }
+    public String getLatiData(){
+        return latiData;
+    }
+    public String getBrightness(){
+        return brightness;
+    }
+    public String getSharpness(){
+        return sharpness;
+    }
+    public double getDistance(){
+        return distance;
+    }
+    public String getDistanceString(){
+        return distanceString;
+    }
+    public void setDistance(double distance){
+        this.distance = distance;
+    }
+    public void setDistanceString(String distanceString){
+        this.distanceString = distanceString;
+    }
+
 
     public boolean equals(ImageDetails id){
         return this.tagText.equals(id.tagText);
@@ -71,7 +110,7 @@ public class ImageDetails implements Parcelable {
     }
     // Parcelling part
     public ImageDetails(Parcel in){
-        String[] data = new String[8];
+        String[] data = new String[9];
         in.readStringArray(data);
         tagText = data[0];
         descText = data[1];
@@ -80,7 +119,8 @@ public class ImageDetails implements Parcelable {
         latiData = data[4];
         brightness = data[5];
         sharpness = data[6];
-        distanceString = data[7];
+        contrast = data[7];
+        distanceString = data[8];
 
     }
 
@@ -92,7 +132,7 @@ public class ImageDetails implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeStringArray(new String[] {tagText, descText, imageLink,
-                               longiData, latiData, brightness,sharpness, distanceString});
+                               longiData, latiData, brightness,sharpness,contrast, distanceString});
     }
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public ImageDetails createFromParcel(Parcel in) {
@@ -103,4 +143,5 @@ public class ImageDetails implements Parcelable {
             return new ImageDetails[size];
         }
     };
+
 }

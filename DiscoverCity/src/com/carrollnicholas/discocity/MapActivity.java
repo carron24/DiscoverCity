@@ -25,6 +25,13 @@ import java.util.List;
 import java.util.Locale;
 
 public class MapActivity extends Activity {
+    private ImageDetails id;
+    private String latString;
+    private String longiString;
+    private String tagText;
+    private DecimalFormat df2;
+    private String distance;
+    private String addressText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,70 +39,77 @@ public class MapActivity extends Activity {
         String TAG = "MapActivity";
         setContentView(R.layout.activity_map);
         Bundle extras = getIntent().getExtras();
-        final ImageDetails id = (ImageDetails) extras.getParcelable("imageDetails");
-        String latString = id.latiData;
-        String longiString = id.longiData;
-        final String tagText = id.tagText;
-        DecimalFormat df2 = new DecimalFormat("###.##");
-        final String distance = Double.valueOf(df2.format(Double.parseDouble(id.distanceString))) + " metres away";
-        final String addressText = getAddress(latString, longiString);
+        id = (ImageDetails) extras.getParcelable("imageDetails");
+        latString = id.getLatiData();
+        longiString = id.getLongiData();
+        tagText = id.getTagText();
+        df2 = new DecimalFormat("###.##");
+        distance = (df2.format(Double.parseDouble(id.getDistanceString())) + " metres away");
+        addressText = getAddress(latString, longiString);
 
-            final GoogleMap mMap;
-            mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-            mMap.setMyLocationEnabled(true);
-            // Setting a custom info window adapter for the google map
-            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-
-                // Use default InfoWindow frame
-                @Override
-                public View getInfoWindow(Marker arg0) {
-                    return null;
-                }
-
-                // Defines the contents of the InfoWindow
-                @Override
-                public View getInfoContents(Marker arg0) {
-
-                    // Getting view from the layout file info_window_layout
-                    View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-
-                    // Getting the position from the marker
-                    LatLng latLng = arg0.getPosition();
-
-                    // Getting reference to the TextView to set latitude
-                    TextView tvTag = (TextView) v.findViewById(R.id.tag);
-
-                    // Getting reference to the TextView to set longitude
-                    TextView tvDistance = (TextView) v.findViewById(R.id.distance);
-
-                    // Getting reference to the TextView to set longitude
-                    TextView tvStreet = (TextView) v.findViewById(R.id.street);
-
-                    // Setting the latitude
-                    tvTag.setText(tagText);
-
-                    // Setting the longitude
-                    tvDistance.setText(distance);
-
-                    tvStreet.setText(addressText + " ");
-
-                    // Returning the view containing InfoWindow contents
-                    return v;
-
-                }
-            });
-            mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(Double.parseDouble(latString), Double.parseDouble(longiString))));
-
-
-            LatLng latLng = new LatLng(Double.parseDouble(latString), Double.parseDouble(longiString));
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-            mMap.animateCamera(cameraUpdate);
+        final GoogleMap mMap;
+        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        initMap(mMap);
+        mapAdapter(mMap);
     }
 
 
 
 
+    private void initMap(GoogleMap mMap){
+        mMap.setMyLocationEnabled(true);
+        // Setting a custom info window adapter for the google map
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(Double.parseDouble(latString), Double.parseDouble(longiString))));
+
+
+        LatLng latLng = new LatLng(Double.parseDouble(latString), Double.parseDouble(longiString));
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+        mMap.animateCamera(cameraUpdate);
+    }
+    private void mapAdapter(GoogleMap mMap){
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+            // Use default InfoWindow frame
+            @Override
+            public View getInfoWindow(Marker arg0) {
+                return null;
+            }
+
+            // Defines the contents of the InfoWindow
+            @Override
+            public View getInfoContents(Marker arg0) {
+
+                // Getting view from the layout file info_window_layout
+                View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+
+                // Getting the position from the marker
+                LatLng latLng = arg0.getPosition();
+
+                // Getting reference to the TextView to set latitude
+                TextView tvTag = (TextView) v.findViewById(R.id.tag);
+
+                // Getting reference to the TextView to set longitude
+                TextView tvDistance = (TextView) v.findViewById(R.id.distance);
+
+                // Getting reference to the TextView to set longitude
+                TextView tvStreet = (TextView) v.findViewById(R.id.street);
+
+                // Setting the latitude
+                tvTag.setText(tagText);
+
+                // Setting the longitude
+                tvDistance.setText(distance);
+
+                tvStreet.setText(addressText + " ");
+
+                // Returning the view containing InfoWindow contents
+                return v;
+
+            }
+        });
+    }
     public String getAddress( String latString, String longiString) {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         String addressText = "";

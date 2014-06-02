@@ -16,7 +16,7 @@ public class ShowImage extends Activity {
         setContentView(R.layout.activity_show_image);
         Bundle data = getIntent().getExtras();
         final ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");
-        String s = "http://nicholascarroll.info:3000" + id.imageLink;
+        String s = "http://nicholascarroll.info:3000" + id.getImageLink();
 
         ImageView imageview = (ImageView)findViewById(R.id.fullScreenImage);
         new DownloadImageTask(imageview)

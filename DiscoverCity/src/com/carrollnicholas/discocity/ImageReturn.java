@@ -57,11 +57,12 @@ public class ImageReturn extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_return);
         id = new ArrayList<ImageDetails>();
-        b = (Button) findViewById(R.id.button);
-        b1 = (Button) findViewById(R.id.button2);
-        b2 = (Button) findViewById(R.id.button3);
-        b3 = (Button) findViewById(R.id.button4);
-        b4 = (Button) findViewById(R.id.button5);
+
+        int[] button_array = {R.id.button,R.id.button2,R.id.button3,R.id.button4,R.id.button5};
+        for(int id : button_array){
+            ((Button)findViewById(id)).setOnClickListener(onClickListener);
+        }
+
         JSONArray jsonArray = null;
         RetrieveImages ri = new RetrieveImages();
         String s = "";
@@ -88,11 +89,8 @@ public class ImageReturn extends ActionBarActivity {
         jt.infoReturn(jsonArray);
         tmp = jt.closestImages(id,loc);
 
-        b.setOnClickListener(onClickListener);
-        b1.setOnClickListener(onClickListener);
-        b2.setOnClickListener(onClickListener);
-        b3.setOnClickListener(onClickListener);
-        b4.setOnClickListener(onClickListener);
+
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

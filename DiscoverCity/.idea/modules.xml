@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DiscoverCity.iml" filepath="$PROJECT_DIR$/DiscoverCity.iml" />
       <module fileurl="file://$PROJECT_DIR$/OpenCVLibrary245/OpenCVLibrary245.iml" filepath="$PROJECT_DIR$/OpenCVLibrary245/OpenCVLibrary245.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/opencv/opencv.iml" filepath="$PROJECT_DIR$/libs/opencv/opencv.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/opencv/opencv.iml" filepath="$PROJECT_DIR$/libs/opencv/opencv.iml" />
     </modules>
