@@ -49,8 +49,11 @@ public class ImageReturn extends ActionBarActivity {
     Button b3;
     Button b4;
     Button b5;
+    Button b6;
     static public ArrayList<ImageDetails> id;
     static public ArrayList<ImageDetails> tmp;
+
+    private String PAYLOAD = "com.carrollnicholas.discocity.ImageReturn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,8 @@ public class ImageReturn extends ActionBarActivity {
         setContentView(R.layout.activity_image_return);
         id = new ArrayList<ImageDetails>();
 
-        int[] button_array = {R.id.button,R.id.button2,R.id.button3,R.id.button4,R.id.button5};
+        int[] button_array = {R.id.button,R.id.button2,R.id.button3,R.id.button4,R.id.button5,
+                R.id.button6, R.id.button7,R.id.button8, R.id.button9, R.id.button10};
         for(int id : button_array){
             ((Button)findViewById(id)).setOnClickListener(onClickListener);
         }
@@ -113,21 +117,28 @@ public class ImageReturn extends ActionBarActivity {
             Intent myIntent = new Intent(ImageReturn.this, ResultActivity.class);
             switch (v.getId()) {
                 case R.id.button:
+                case R.id.button6:
                     myIntent.putExtra("imageDetails", tmp.get(0));
                     break;
                 case R.id.button2:
+                case R.id.button7:
                     myIntent.putExtra("imageDetails", tmp.get(1));
                     break;
                 case R.id.button3:
+                case R.id.button8:
                     myIntent.putExtra("imageDetails", tmp.get(2));
                     break;
                 case R.id.button4:
+                case R.id.button9:
                     myIntent.putExtra("imageDetails", tmp.get(3));
                     break;
                 case R.id.button5:
+                case R.id.button10:
                     myIntent.putExtra("imageDetails", tmp.get(4));
                     break;
             }
+
+            myIntent.putExtra("PAYLOAD", PAYLOAD);
             ImageReturn.this.startActivity(myIntent);
 
         }

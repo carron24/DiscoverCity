@@ -21,6 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ResultActivity extends ActionBarActivity {
+    private String PAYLOAD = "com.carrollnicholas.discocity.ResultActivity";
+    String RECIEVED_PAYLOAD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class ResultActivity extends ActionBarActivity {
 
         Bundle data = getIntent().getExtras();
         final ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");
+        RECIEVED_PAYLOAD = data.getString("PAYLOAD");
+
         TextView text = (TextView) findViewById(R.id.textView);
         TextView text2 = (TextView) findViewById(R.id.textView2);
         text.setText(id.getTagText());

@@ -43,6 +43,7 @@
         android:textColorHint="#EEEEEE"
         android:textColor="#FFFFFF"
         android:textCursorDrawable="@null"
+        android:maxLength="23"
 
         android:shadowColor="#000000"
         android:shadowDx="0"

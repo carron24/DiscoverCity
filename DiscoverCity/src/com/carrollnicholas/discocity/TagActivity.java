@@ -344,17 +344,12 @@ private class MyLocationListener implements LocationListener {
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
                 {
-                    Log.i("image", "OpenCV loaded successfully");
                     Mat original_image = Highgui.imread(imageLocation);
 
-
-                    Log.v("OpenCV1", sharpness+" sharpness");
-                    Log.v("OpenCV1", brightness+" brightness");
                     brightness = getBrightness(original_image)/1000000;
                     sharpness = getSharpness(original_image)/100000;
 
-                    Log.v("OpenCV1", sharpness+" sharpness");
-                    Log.v("OpenCV1", brightness+" brightness");
+
                 } break;
                 default:
                 {
@@ -364,7 +359,7 @@ private class MyLocationListener implements LocationListener {
         }
     };
 
-    private int getBrightness(Mat image){
+    protected int getBrightness(Mat image){
 
         Mat converted_image = image.clone();
         List<Mat> ycrcb = new ArrayList<Mat>();
@@ -397,8 +392,7 @@ private class MyLocationListener implements LocationListener {
 
         Imgproc.cvtColor(tmp, grey, Imgproc.COLOR_YUV2GRAY_420);
         Core.MinMaxLocResult minMax = Core.minMaxLoc(grey);
-        Log.v("whatthecraic: ", minMax.maxVal + "");
-        Log.v("whatthecraic: ", minMax.minVal + "");
+
         Scalar v = Core.mean(grey);
 
         MatOfDouble mean = new MatOfDouble();

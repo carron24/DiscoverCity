@@ -45,6 +45,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 		// TODO Auto-generated method stub
         if (mCamera != null) {
             Camera.Parameters params = mCamera.getParameters();
+            params.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
             List<Camera.Size> localSizes = params.getSupportedPreviewSizes();
             mSupportedPreviewSizes = localSizes;
             requestLayout();

@@ -1,6 +1,7 @@
 package com.carrollnicholas.discocity;
 
 import android.app.Activity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,11 +9,14 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 
-public class ShowImage extends Activity {
+public class ShowImage extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
         setContentView(R.layout.activity_show_image);
         Bundle data = getIntent().getExtras();
         final ImageDetails id = (ImageDetails) data.getParcelable("imageDetails");

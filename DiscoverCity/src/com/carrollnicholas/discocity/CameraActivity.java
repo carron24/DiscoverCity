@@ -29,7 +29,8 @@ import java.util.Date;
 public class CameraActivity extends ActionBarActivity {
 	static Context context;
 	Camera cam;
-	CameraPreview mPreview;
+    CameraPreview mPreview;
+    private boolean isFlashOn;
 
 	public static final int MEDIA_TYPE_IMAGE = 1;
 	private static final String TAG = "CameraActivity";
@@ -46,10 +47,11 @@ public class CameraActivity extends ActionBarActivity {
 
 
 		mPreview = new CameraPreview(this, cam);
-		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+		final FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
 		preview.addView(mPreview);
-		
+
 		final Button button = (Button) findViewById(R.id.button);
+
 
         button.setBackground(getResources().getDrawable(R.drawable.cam_selector));
 		button.setOnClickListener(

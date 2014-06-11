@@ -34,7 +34,7 @@
 
         <activity android:label="@string/app_home" android:name="com.carrollnicholas.discocity.MapActivity" android:parentActivityName="com.carrollnicholas.discocity.CameraActivity">
         </activity>
-        <activity android:name="com.carrollnicholas.discocity.ShowImage" android:parentActivityName="com.carrollnicholas.discocity.ResultActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name="com.carrollnicholas.discocity.ShowImage" android:parentActivityName="com.carrollnicholas.discocity.ResultActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="ResultActivity"/>
         </activity>
     </application>
